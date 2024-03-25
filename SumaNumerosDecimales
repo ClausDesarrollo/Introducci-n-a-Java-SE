@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class SumaNumerosDecimales {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el primer número decimal: ");
+        String numero1 = scanner.nextLine();
+
+        System.out.print("Ingrese el segundo número decimal: ");
+        String numero2 = scanner.nextLine();
+
+        if (!esNumeroDecimal(numero1) || !esNumeroDecimal(numero2)) {
+            System.out.println("Error: Uno o ambos números no son válidos.");
+            return;
+        }/*
+        En el ejercicio anterior ya mencione la estructura de captura de errores (pero hay funciones
+        dedicadas pa hacer pruebas unitarias o gestionar errores.
+        aqui suamos la estructura if y no while para el ejercicio, ya no validamos "mientras que"
+        aqui directamente agregamos Si A es difernte o B Es difernte o falso , ejecuta el if.
+        De lo contrario sigue adelante
+        Al ser una condicion que solo se ejcuta mientras sea cierta ahorra espacio de memoria interno
+        */
+
+        double resultado = Double.parseDouble(numero1) + Double.parseDouble(numero2);
+        /*
+        Ya explicamos que double es para numeros grandes pero como nota su valor por defecto es 0.
+        */
+
+        System.out.println("El resultado de la suma es: " + resultado);
+
+        scanner.close();
+    }
+
+    private static boolean esNumeroDecimal(String cadena) {
+        try {
+            Double.parseDouble(cadena);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    //try cach es una tipo de condicional en java , en esta caso lo usamos para identificar la condicion
+    //inicial
+}

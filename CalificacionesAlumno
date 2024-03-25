@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class CalificacionesAlumno {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el nombre del alumno: ");
+        String nombreAlumno = scanner.nextLine();
+
+        double[] calificaciones = new double[3];
+        for (int i = 0; i < 3; i++) {
+            //este es un bucle, que mantiene en ejecucion asta cumplir su condicion
+            //iniciamos a contar en 0, y sumamos el valor de i (digamos 1) al cero en cada
+            //repeticion 1 + 1 = 2, 2 + 1 = 3 y asi continuamente
+            //esto seria infinito si no fuese por la condicion de frenar mientras i sea menor a 3
+            //nota inicia en 0 por que i++ es primero imprime y luego suma, pero ++i es primero
+            //suma y luego imprime , es decir inicia en 0
+            System.out.print("Ingrese la calificación " + (i + 1) + ": ");
+            while (true) {
+                try {
+                    double calificacion = Double.parseDouble(scanner.nextLine());
+                    if (calificacion < 0 || calificacion > 10) {
+                        throw new NumberFormatException();
+                    }//sin detenerme mucho valida que sea entre 1 y 10
+                    calificaciones[i] = calificacion;
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Debe ingresar un número entre 0 y 10.");
+                    System.out.print("Ingrese la calificación " + (i + 1) + " nuevamente: ");
+                } //es un retorno al inicio
+            }
+        }
+
+        double promedio = calcularPromedio(calificaciones);
+
+        System.out.println("\nResumen de calificaciones:");
+        System.out.println("Nombre del alumno: " + nombreAlumno);
+        System.out.println("Calificaciones:");
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Calificación " + (i + 1) + ": " + calificaciones[i]);
+        }//muestro las calificaciones
+        System.out.println("Promedio: " + promedio);
+
+        if (promedio >= 6) {//valida si el promedio es igual o mayor a 6 para aprobar, si es falso reprueba
+            System.out.println("El alumno está aprobado.");
+        } else {
+            System.out.println("El alumno está reprobado.");
+        }
+
+        scanner.close();
+    }
+    //aqui estamos haciendo un ciclo de validacion para obtener las calificaciones con cada for
+    //valida el numero de pregunta y valores que a obtenido
+    // (son 3 si no tiene los 3 valores pregunta otra ves)
+
+    private static double calcularPromedio(double[] calificaciones) {
+        double suma = 0;
+        for (double calificacion : calificaciones) {
+            suma += calificacion;
+        }
+        return suma / calificaciones.length;
+    }
+}

@@ -1,0 +1,22 @@
+public class UpdatingVariable {
+    public static void main(String[] args) {
+        // Actualizar datos numéricos:
+        int salary = 1000; //Nuestra variable
+        salary = salary + 200;  //Le sumamos 200
+        System.out.println(salary); // 1200 , al mostrar nuevamente nuestra variable pero ahora se a actualizado
+
+        salary += 300; //ahora usamos += para asignar una suma a nuestra variable de 300
+        System.out.println(salary); // 1500
+
+        // Actualizar variables de tipo String o cadena de texto:
+        String employeeName = "Benito ";
+        employeeName = employeeName + "Bodoque ";
+        System.out.println(employeeName); // Nos regresa "Benito bodoque" ya que se a agregado a la cadena "bodoque"
+
+        employeeName += "Díaz de la Vega"; //una ves mas agregamos contenido usando += pero esta vez a una cadena string
+        System.out.println(employeeName); // Benito Bodoque Díaz de la Vega
+
+        employeeName = "Don " + employeeName;
+        System.out.println(employeeName); // completamos la informacion agregando al inicio otro arreglo
+    }
+}

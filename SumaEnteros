@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class SumaEnteros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar al usuario el primer número
+        System.out.print("Ingrese el primer número entero: ");
+        while (!scanner.hasNextInt()) { // Validar si el valor ingresado es un número entero
+            System.out.println("Error. Por favor, ingrese un número entero.");
+            scanner.next(); // Limpiar el buffer del scanner
+        }
+        int numero1 = scanner.nextInt();
+
+        // Solicitar al usuario el segundo número
+        System.out.print("Ingrese el segundo número entero: ");
+        while (!scanner.hasNextInt()) { // Validar si el valor ingresado es un número entero
+            System.out.println("Error. Por favor, ingrese un número entero.");
+            scanner.next(); // Limpiar el buffer del scanner
+        }
+        int numero2 = scanner.nextInt();
+
+        // Calcular la suma de los dos números
+        int suma = numero1 + numero2;
+
+        // Mostrar el resultado
+        System.out.println("La suma de " + numero1 + " y " + numero2 + " es: " + suma);
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}

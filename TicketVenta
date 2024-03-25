@@ -1,0 +1,51 @@
+import java.util.Scanner;
+//esta libreria nos permite leer desde teclado (lo menciono solo esta vez ya que son muchos)
+public class TicketVenta {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir el nombre del producto para comprar
+        System.out.print("Aqui ingresamos el producto: ");
+        String nombreProducto = scanner.nextLine(); //lo guardamos en una cadena (tipo de dato string)
+
+        // Pedir la cantidad solicitada de productos que nos pide
+        System.out.print("Ingrese la cantidad solicitada: ");
+        int cantidadSolicitada; //este es un numero entero , es decir tipo de dato int
+        while (true) {  //me gusta mas usar if, pero en este caso suaremos un "mientras que.."
+            try {       //mientras la condicional sea cierta segumos adelante o nos mandamos a error
+                cantidadSolicitada = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un número entero para la cantidad solicitada.");
+                System.out.print("Ingrese la cantidad solicitada nuevamente: ");
+            }  //a qui cobra sentido el while, si no cumple la condicion nos regresa
+        }
+
+        // Pedir el precio de venta del producto de la tiendita
+        System.out.print("Ingrese el precio de venta del producto: ");
+        double precioVenta;
+        while (true) {
+            try {
+                precioVenta = Double.parseDouble(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un número para el precio de venta.");
+                System.out.print("Ingrese el precio de venta nuevamente: ");
+            }//mismo caso de antes
+        }
+
+        // Calcular el precio total
+        double precioTotal = cantidadSolicitada * precioVenta;
+        //usamos double ya que estamos manejando cantidades grandes
+
+        // Mostrar los resultados
+        System.out.println("\nResumen de la venta:");
+        System.out.println("Nombre del producto: " + nombreProducto);
+        System.out.println("Cantidad de productos solicitados: " + cantidadSolicitada);
+        System.out.println("Precio individual: $" + precioVenta);
+        System.out.println("Precio total: $" + precioTotal);
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}

@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CalculadoraAreaCuadrad {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la longitud del lado del cuadrado: ");
+        double lado = obtenerNumero(scanner);
+        //mas adelante validamos con try cach explicado anterior mente
+        // como validamos que sea un numero
+
+        double area = lado * lado;
+
+        System.out.println("El área del cuadrado es: " + area);
+
+        scanner.close();
+    }
+    private static double obtenerNumero(Scanner scanner) {
+        while (true) {
+            try {
+                return Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un número.");
+                System.out.print("Ingrese nuevamente: ");
+            }
+        }
+    }
+}
