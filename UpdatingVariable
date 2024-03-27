@@ -18,5 +18,29 @@ public class UpdatingVariable {
 
         employeeName = "Don " + employeeName;
         System.out.println(employeeName); // completamos la informacion agregando al inicio otro arreglo
+
+/*
+agregado 26 de marzo! las variables largas generan problemas cuando son mas de 10 digitos 
+caso similar para el punto decimal y numeros negativos 
+para eso terminamos el valor numerico con L valores largos y F para numeros decimales 
+*/
+        long numero = 102345678L;
+        long n = 10123456789L; //nota L al final es para numeros largos
+        System.out.println("numero = " + numero);
+        System.out.println("numero largo" + n); //mostramos el dato largo
+
+        double decimal = 1.123456789011;
+        float decimal2 = 1.9876543219F ; //igual mente con decimales podemos usar double simple o float con una F al final
+        double decimalLargo = 1234567890.123456789;
+
+        /*
+        *El tipo de dato double es una precisión de punto flotante de doble precisión,
+        * que puede manejar números decimales más largos
+        * y con mayor precisión que el tipo de dato float.
+        */
+
+
+
+
     }
 }
