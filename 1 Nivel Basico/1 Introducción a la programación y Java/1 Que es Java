@@ -1,0 +1,14 @@
+Que es Java?
+
+Java es un lenguaje de programación orientado a objetos que fue desarrollado por Sun Microsystems (posteriormente adquirido por Oracle Corporation). 
+Fue creado por James Gosling y su equipo en la década de 1990, y desde entonces se ha convertido en uno de los lenguajes de programación más populares en el mundo.
+
+Plataforma independiente:
+"Escribe una vez, ejecuta en cualquier lado". 
+Esto se logra a través de la Máquina Virtual de Java (JVM), que permite que el código Java sea compilado a un bytecode que puede ser ejecutado en cualquier dispositivo o sistema que tenga una JVM instalada.
+
+Orientado a objetos:
+Java es un lenguaje completamente orientado a objetos, lo que significa que todo en Java es un objeto, incluyendo clases, métodos y variables. Utiliza conceptos como encapsulamiento, herencia y polimorfismo para modelar y organizar el código de manera eficiente.
+
+Amplia biblioteca estándar (API):
+Java cuenta con una amplia biblioteca estándar de clases y métodos, conocida como Java API (Application Programming Interface), que proporciona funcionalidades para tareas comunes como entrada/salida, manipulación de datos, redes, GUI, seguridad, y mucho más.
