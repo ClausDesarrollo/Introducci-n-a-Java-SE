@@ -1,0 +1,54 @@
+Herramientas y flujo de trabajo 
+
+* Antes de comenzar a trabajar necesitaremos un entorno de desarrollo-
+Adicional comenzaremos a trabajar en el flujo de trabajo de desarrollo y mas adelante incluiremos el ecosistema de un lenguaje para el desarrollo 
+
+* El Flujo de trabajo incluye todo el proceso de DevOps desde el inicio y entrega de proyectos de un proyecto y de manera individual las buenas practicas de un trabajador en su entorno de trabajo. 
+
+* EL Exosistema de un lenguaje de programación es todo otro lenguaje o elementos con los que convive en la ejecución de un proyectos para poder funcionar. Esto incluye base de datos, lenguajes de front para desarrollo web, git, docker, Frameworks, lents testt entre otros.
+
+
+A) Herramientas Necesarias:
+
+* Java Development Kit (JDK): Para el desarrollo en Java. Proporciona las herramientas para desarrollar y ejecutar programas escritos en Java. Se recomienda instalar la última versión estable del JDK desde el sitio oficial de Oracle o OpenJDK.
+
+* IntelliJ IDEA: Un entorno de desarrollo integrado (IDE) fácil de usar para Java. Esto es una recomendación pero en este curso e elegido este IDE por practicidad en el entorno de trabajo de java.
+
+* Git: Un sistema de control de versiones distribuido que te permite rastrear cambios en el código fuente durante el desarrollo de software. Instala Git desde el sitio oficial y configura tu nombre de usuario y dirección de correo electrónico usando el comando git config.
+
+* GitHub Desktop: Una aplicación de escritorio que simplifica el flujo de trabajo con GitHub. Permite clonar repositorios, realizar cambios, realizar commits y sincronizar con repositorios remotos en GitHub. Después de instalar GitHub Desktop, inicia sesión con tu cuenta de GitHub para acceder a tus repositorios.
+
+* Postman: Una herramienta colaborativa de desarrollo de API que te permite crear, compartir, probar y documentar APIs. Descarga e instala Postman desde su sitio web oficial. Configura tu entorno y crea colecciones para organizar tus solicitudes de API.
+
+* SonarLint: Una extensión para IDE que proporciona análisis estático de código en tiempo real para detectar problemas de calidad del código. Instala SonarLint desde el mercado de plugins de IntelliJ IDEA y configúralo para que se integre con tu proyecto.
+
+* Swagger: Una herramienta para diseñar, construir, documentar y consumir servicios web RESTful. Utiliza Swagger para documentar tus API de forma clara y concisa, proporcionando información sobre los puntos finales, parámetros y respuestas esperadas.
+
+B) Flujo de Trabajo (Instalación) :
+
+1) Instalamos Java Development Kit (JDK)
+2) Instalamos Git y procedemos a configurarlo con nuestros datos de identificación 
+3) Creamos un usuario en nuestro repositorio remoto (En este caos GitHub)
+4) Instalamos GitHub DeskTop, Configuramos nuestras preferencias
+5) Creamos un repositorio remoto en gitHub (este será nuestro repositorio remoto)
+6) Dentro de Github Desktop conectamos con nuestro repositorio remoto y clonamos una copia en nuestro equipo, el que será nuestro repositorio local
+7) En GitHub Desktop elegimos la opción de abrir nuestro repositorio en el entorno de desarrollo
+8) Ejecutamos cambios y los agregamos a nuestro repositorio ya sea desde consola o GitHub desktop
+9) Agregamos nuestros cambiamos desde GitHub Desktop al repositorio remoto 
+
+B) Flujo de Trabajo :
+
+1) Iniciamos con nuestra aplicación de GitHub Desktop, presionando el botón de Fetch para identificar si se an generado cambios al repositorio remoto y emparejarlos con tu proyecto actual
+2) Abrimos con la aplicación de GitHub Desktop nuestro entrono de desarrollo IDE
+3) Hacemos nuestros cambios 
+4) En GitHub agregamos nuestros cambios a nuestro repositorio local, y luego a nuestro repositorio remoto 
+5) Dependiendo de las normas de la empresa es necesario hacer pruebas con Postman, Documentación de estas y Documentación Tecncia identificar errores de redundancia o code smells y entregar esta evidencia y documentación con los cambios de nuestra rama de git a la rama principal de producción o pre-producción según sea el caso al hacer el commit o unión de nuestro trabajo
+
+
+C) Recomendación no comprendidas en este curso
+
+* Automatización de Pruebas y Construcción:
+Pipelines de CI/CD (Continuous Integration/Continuous Deployment) utilizando herramientas como Jenkins o GitLab CI para automatizar las pruebas
+
+* Gestión de Dependencias:
+Gestión de dependencias como Maven o Gradle para administrar las dependencias de tu proyecto y mantenerlo actualizado.
