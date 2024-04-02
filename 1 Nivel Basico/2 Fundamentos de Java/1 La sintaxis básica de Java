@@ -1,0 +1,110 @@
+1 La sintaxis básica de Java
+
+Se refiere a las reglas y convenciones que se deben seguir al escribir código en Java.
+
+1 - Declaración de clases y métodos:
+
+- En Java, el código se organiza en clases
+- El método main es el punto de entrada para la ejecución de un programa Java.
+
+public class MiClase {
+    public static void main(String[] args) {
+        // Código ejecutable
+    }
+}
+
+2 - Comentarios:
+
+-Los comentarios son la manera en la que damos informacion que el lector de nuestro codigo ignora. esto con el fin de dar informacion dentro de las lineas de codigo sin que afecten el funcionamiento de este 
+
+// Esto es un comentario de una sola línea
+
+/*
+Este es un comentario
+de varias líneas 
+*/
+
+/*
+* Mi recomendacion personal es que los comentarios sean temporales, claros, visibles, compactos
+* esteticos y dedicados a uno mismo o a otras personas de manera clara para proporcionar 
+* pertinente. 
+*/
+
+3 - Declaración de variables:
+
+- En Java, las variables deben ser declaradas con un tipo específico antes de ser utilizadas.
+- Las variables tienen un tipo de dato, cada tipo de dato se maneja diferente segun su tipo de operador, tenemos los tipos de datos primitivos "byte, short, int, long, boolean, char, float, double" y no primitivos "string, array, tipo de datos predefinidos y pre definidos pro el usuario" 
+
+int edad = 25;
+double salario = 1500.50;
+String nombre = "Juan";
+
+4 - Estructuras de control:
+
+- Las estructuras de control son condicionales que siemrpe que se cumpla la condicion o mientras la condicion se cumpla siguen pueden seguir un camino diferente dependiendo de la operacion condicional. "do while" por ejemplo se traduce como "hacer X mientras que Condicion". 
+- Podemos agregar condiciones adicionales como "else" si se cumple la condicion seguir adelante "if else" o "else" ejecutar otra accion 
+
+si hay cebollas (if cebollas)
+   trae 3 tomates, 
+si no (if else)
+   trae 5 manzanas, 
+sino (else)
+   pide comida a domicilio.
+
+- if-else, switch-case, for, while y do-while, que se utilizan para controlar el flujo del programa.
+
+if (edad >= 18) {
+    System.out.println("Eres mayor de edad");
+} else {
+    System.out.println("Eres menor de edad");
+}
+
+
+5 - Operadores:
+
+- los operadores aritméticos son los operadores para interactuar con valores numericos 
+  (+, -, *, /, %)
+
+int x = (2 + 2 - 4 * 3)/2 
+
+- Dentrro de los operadores podemos usar los de asignación (=, +=, -=), estos valores nos permiten hacer incrementos, decrementos o abreviar operaciones largas.
+
+"a+=b" es igual a "a = a + b"
+"a-=b" es igual a "a = a - b"
+"a*=b" es igual a "a = a * b"
+"a/=b" es igual a "a = a / b"
+
+- Los operadores de comparación nos permiten comparar valores distintos 
+  (==, !=, >, <, >=, <=), lógicos (&&, ||, !)
+
+if (MiGato == Gordito){ PonerAdieta } 
+if (MiSueldo >= MuchoDinero || MiSueldo >= Antojos) {GastarEnDulces} 
+if (MiSueldo != MuchoDinero) { si MiSueldo es diferente de MuchoDinero entraria en este if}
+
+
+6 - Métodos y funciones:
+
+* Metodo
+- Los métodos se definen con un tipo de retorno, un nombre y, opcionalmente, una lista de parámetros. 
+- Pueden ser estáticos (static) o de instancia.
+
+modificadorAcceso tipoRetorno nombreMétodo(parámetros) {
+    // Cuerpo del método
+}
+
+- Modificador de acceso: aplica para tipo de restricion de datos sean publicos o privados
+- Tipo de retorno : se refiere al tipo de dato sea int para enteros o char o String para texto
+- Nombere del metodo: es el nombre del metodo y com o nos referiremso a el para ejecutarlo. en este caso si quisieramos llamarlo seria int resultado = nombreMétodo(5, 3); , si el cuerpo del metodo sumara los Parametros 5 y 3 al llamarlo de esa manera nor entregaria un 8 con solo asignar la palabra clave "nombreMétodo" 
+- Parametros: son los valores dentro del metodo, estos son los valores que obtiene nuetsro metodo para operar en el cuerpo del mismo
+
+- Un método en Java es una unidad de código que realiza una tarea específica y puede ser reutilizada en múltiples lugares de un programa. 
+- Proporciona modularidad y facilita la organización del código, lo que hace que los programas sean más legibles, mantenibles y escalables.
+
+
+* Función:
+- Una función es un segmento de código que realiza una acción y devuelve una respuesta y se delcara fuera de la clase, la diferencia es que el metodo siempre esta asignado dentro de una clase.
+
+- Puede recibir argumentos y operar con ellos al igual que un metodo.
+- Una función que calcula el área de un círculo y devuelve el resultado.
+
+
