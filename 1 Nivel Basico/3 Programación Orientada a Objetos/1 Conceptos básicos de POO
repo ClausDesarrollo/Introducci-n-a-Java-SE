@@ -1,0 +1,40 @@
+1 Conceptos básicos de POO
+
+La Programación Orientada a Objetos (POO) es un paradigma de programación que se basa en el concepto de "objetos". 
+
+Un objeto es una entidad que agrupa datos (también conocidos como atributos o propiedades) y métodos (en resumen un objeto de programacion lo podemos ver como funciones o procedimientos) que operan en esos datos. 
+
+La POO se centra en organizar el código de manera que los objetos representen entidades del mundo real o abstracto con las que estamos familiarizados.
+
+
+== Ejemplos ==
+
+- Clases y objetos:
+
+* Una clase es una plantilla para crear objetos. Define los atributos y métodos que tendrán los objetos de esa clase.
+Un objeto es una instancia de una clase. Es una entidad concreta que tiene su propio conjunto de datos y puede realizar acciones definidas por la clase.
+
+- Atributos:
+
+* Los atributos son variables que representan el estado de un objeto. Cada objeto tiene su propio conjunto de valores para estos atributos.
+Por ejemplo, en una clase Persona, los atributos podrían ser nombre, edad, altura, etc.
+
+- Métodos:
+
+* Los métodos son funciones que definen el comportamiento de un objeto. Permiten realizar acciones y manipular los datos de un objeto.
+Por ejemplo, en una clase Persona, los métodos podrían ser caminar(), hablar(), envejecer(), etc.
+
+- Encapsulación:
+
+* La encapsulación es un principio de la POO que consiste en ocultar los detalles internos de un objeto y exponer solo la interfaz pública (métodos) para interactuar con él.
+Se logra mediante el uso de modificadores de acceso (como public, private, protected) para controlar el acceso a los atributos y métodos de una clase.
+
+- Herencia:
+
+* La herencia es un mecanismo que permite que una clase (llamada subclase o clase hija) herede atributos y métodos de otra clase (llamada superclase o clase padre).
+Permite la reutilización de código y la creación de jerarquías de clases.
+
+- Polimorfismo:
+
+* El polimorfismo es la capacidad de un objeto de comportarse de diferentes maneras según el contexto.
+Puede manifestarse de varias formas, como el polimorfismo de subtipos (a través de la herencia) y el polimorfismo paramétrico (a través de interfaces y clases genéricas).
