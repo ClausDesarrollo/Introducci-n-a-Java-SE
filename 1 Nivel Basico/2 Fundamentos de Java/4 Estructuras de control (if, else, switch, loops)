@@ -1,0 +1,62 @@
+4 Estructuras de control (if, else, switch, loops)
+
+Las estructuras de control en Java son bloques de código que te permiten controlar el flujo de ejecución de un programa. 
+
+Estas estructuras te permiten tomar decisiones basadas en ciertas condiciones y repetir la ejecución de cierto código varias veces. Las principales estructuras de control en Java son if, else, switch y los bucles (for, while, do-while).
+
+1 - Estructura if-else:
+Esta estructura te permite ejecutar cierto bloque de código si una condición es verdadera (if) y otro bloque de código si la condición es falsa (else). Por ejemplo:
+
+
+int edad = 20;
+if (edad >= 18) {
+    System.out.println("Eres mayor de edad");
+} else {
+    System.out.println("Eres menor de edad");
+}
+
+
+2 - Estructura switch: 
+Esta estructura te permite evaluar una expresión y ejecutar diferentes bloques de código según el valor de esa expresión. Es una alternativa a una serie de instrucciones if-else anidadas. Por ejemplo:
+
+int dia = 3;
+switch (dia) {
+    case 1:
+        System.out.println("Lunes");
+        break;
+    case 2:
+        System.out.println("Martes");
+        break;
+    case 3:
+        System.out.println("Miércoles");
+        break;
+    default:
+        System.out.println("Día no válido");
+}
+
+
+3 - Bucles (loops):
+Se utiliza cuando conoces exactamente el número de iteraciones que quieres realizar. Por ejemplo:
+
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteración " + i);
+}
+
+4 - Bucle while:
+Se utiliza cuando no sabes cuántas iteraciones se necesitarán antes de empezar. La condición se evalúa antes de cada iteración. Por ejemplo:
+
+int contador = 0;
+while (contador < 5) {
+    System.out.println("Iteración " + contador);
+    contador++;
+}
+
+
+5 - Bucle do-while: 
+Similar al bucle while, pero la condición se evalúa después de cada iteración, lo que garantiza que el bloque de código se ejecute al menos una vez. Por ejemplo:
+
+int contador = 0;
+do {
+    System.out.println("Iteración " + contador);
+    contador++;
+} while (contador < 5);

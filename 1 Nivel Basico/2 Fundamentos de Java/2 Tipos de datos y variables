@@ -1,0 +1,34 @@
+2 Tipos de datos y variables
+
+En Java, los tipos de datos y variables son utiles para almacenar y manipular información. 
+
+
+1 - Tipos de datos primitivos:
+
+- int: Representa números enteros, por ejemplo: int edad = 25;
+- double: Representa números de punto flotante (con decimales), por ejemplo: double precio = 10.99;
+- boolean: Representa valores de verdadero/falso, por ejemplo: boolean esMayor = true;
+- char: Representa un solo carácter Unicode, por ejemplo: char inicial = 'A';
+- byte: Representa valores numéricos enteros pequeños, por ejemplo: byte tamaño = 100;
+- short: Representa valores numéricos enteros cortos, por ejemplo: short cantidad = 5000;
+- long: Representa números enteros largos, por ejemplo: long poblacion = 10000000000L; (la 'L' indica que es un literal long)
+- float: Representa números de punto flotante de precisión simple, por ejemplo: float altura = 1.75f; (la 'f' indica que es un literal float)
+
+2 - Tipos de datos de referencia (objetos):
+
+- String: Representa una secuencia de caracteres, por ejemplo: String nombre = "Juan";
+- Arrays: Colecciones de elementos del mismo tipo, por ejemplo: int[] numeros = {1, 2, 3, 4, 5};
+- Clases personalizadas: Puedes crear tus propias clases para representar tipos de datos personalizados, por ejemplo: Persona persona = new Persona();
+
+3 - Variables:
+
+- Las variables son espacios de memoria que almacenan datos. En Java, debes declarar una variable antes de usarla, especificando su tipo de dato y opcionalmente asignándole un valor inicial.
+Ejemplo de declaración y asignación de una variable: int edad = 25;
+Puedes cambiar el valor de una variable después de haberla declarado: edad = 30;
+
+4 - Constantes:
+
+En Java, puedes declarar constantes utilizando la palabra clave final. Una vez que se asigna un valor a una constante, no se puede cambiar.
+Ejemplo de declaración de una constante: 
+
+final double PI = 3.14159;

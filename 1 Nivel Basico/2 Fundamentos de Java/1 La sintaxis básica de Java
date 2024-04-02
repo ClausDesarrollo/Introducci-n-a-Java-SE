@@ -100,6 +100,16 @@ modificadorAcceso tipoRetorno nombreMétodo(parámetros) {
 - Un método en Java es una unidad de código que realiza una tarea específica y puede ser reutilizada en múltiples lugares de un programa. 
 - Proporciona modularidad y facilita la organización del código, lo que hace que los programas sean más legibles, mantenibles y escalables.
 
+public class Circulo {
+    double radio;
+
+    // Método para calcular el área del círculo
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+
+
 
 * Función:
 - Una función es un segmento de código que realiza una acción y devuelve una respuesta y se delcara fuera de la clase, la diferencia es que el metodo siempre esta asignado dentro de una clase.
@@ -107,4 +117,10 @@ modificadorAcceso tipoRetorno nombreMétodo(parámetros) {
 - Puede recibir argumentos y operar con ellos al igual que un metodo.
 - Una función que calcula el área de un círculo y devuelve el resultado.
 
+
+# Función para calcular el área del círculo
+def calcular_area(radio):
+    return 3.14159 * radio * radio
+
+En resumen, la diferencia principal es que un método está asociado con una clase en la POO y está diseñado para operar en el contexto de un objeto específico, mientras que una función es más independiente y puede ser invocada desde cualquier lugar del programa donde esté disponible.
 

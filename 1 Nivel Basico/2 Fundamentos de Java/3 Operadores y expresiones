@@ -1,0 +1,86 @@
+3 Operadores y expresiones
+
+- En Java, los Operadores son símbolos especiales que realizan operaciones en uno, dos o tres operandos y devuelven un resultado. 
+
+- Las expresiones, por otro lado, son combinaciones de valores, variables, operadores y llamadas a métodos que se evalúan para producir un valor.
+
+* OPERADORES 
+
+Los operadores más comunes en Java:
+
+1 - Operadores aritméticos: 
+Se utilizan para realizar operaciones matemáticas básicas como suma, resta, multiplicación, división y módulo. Por ejemplo:
+
+Suma: +
+Resta: -
+Multiplicación: *
+División: /
+Módulo (residuo de la división): %
+
+2 - Operadores de asignación: 
+Se utilizan para asignar valores a variables. El operador de asignación más común es =, que asigna el valor de la expresión a la variable. Por ejemplo:
+
+int x = 10;
+
+3 - Operadores de comparación: Se utilizan para comparar dos valores y devolver un resultado booleano (verdadero o falso). Algunos ejemplos son:
+
+Igualdad: ==
+Desigualdad: !=
+Mayor que: >
+Menor que: <
+Mayor o igual que: >=
+Menor o igual que: <=
+
+4 - Operadores lógicos: Se utilizan para realizar operaciones lógicas en valores booleanos. Algunos operadores lógicos comunes son:
+
+AND lógico: &&
+OR lógico: ||
+NOT lógico: !
+
+5 - Operadores de incremento/decremento: Se utilizan para aumentar o disminuir el valor de una variable en uno. Estos operadores pueden ser prefijos (++i, --i) o sufijos (i++, i--).
+
+6 - Operadores de concatenación: 
+En Java, el operador + también se usa para concatenar cadenas de caracteres. Por ejemplo:
+
+String nombre = "Juan";
+String apellido = "Pérez";
+String nombreCompleto = nombre + " " + apellido; // "Juan Pérez"
+
+
+* EXPRESIONES 
+
+Las expresiones en Java son combinaciones de valores, variables, operadores y llamadas a métodos que se evalúan para producir un resultado.
+
+- Expresiones aritméticas:
+
+int resultado = 5 + 3 * 2; // resultado es 11 (la multiplicación se evalúa primero)
+double promedio = (nota1 + nota2 + nota3) / 3.0; // promedio de tres notas
+
+- Expresiones de asignación:
+
+int x = 10;
+double precio = 29.99;
+String nombre = "Juan";
+
+
+- Expresiones de comparación:
+
+boolean esMayor = edad > 18; // true si edad es mayor que 18, de lo contrario, false
+boolean sonIguales = cadena1.equals(cadena2); // true si cadena1 es igual a cadena2
+
+- Expresiones lógicas:
+
+boolean resultadoLogico = (x > 5) && (y < 10); // true si x es mayor que 5 y y es menor que 10
+boolean otraExpresion = (edad >= 18) || (tienePermiso); // true si edad es mayor o igual a 18 o tienePermiso es verdadero
+
+
+- Expresiones de concatenación de cadenas:
+
+String nombreCompleto = nombre + " " + apellido; // concatenación de dos cadenas
+String mensaje = "Hola, " + nombre + "!"; // concatenación de cadena con variable
+
+- Expresiones condicionales (operador ternario):
+
+int resultado = (x > 0) ? x : -x; // si x es mayor que 0, resultado es x, de lo contrario, resultado es -x
+
+- 
