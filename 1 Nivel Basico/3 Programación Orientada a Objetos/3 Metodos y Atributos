@@ -1,0 +1,31 @@
+3 Metodos y Atributos
+
+a) - Atributos:
+
+Son variables vacias que reservan espacio en la memoria de un tipo determinado de dato "int edad;" que usamos. Dentro de las clases podemso asignar valores a estos atributos para ser usados en nuestro metodo "main" u otros metodos "Persona persona1 = new Persona(30);"
+
+b) - Metodos:
+un método es un bloque de código que realiza una tarea específica y puede ser invocado desde otro lugar en el programa. Los métodos son parte de las clases en Java. 
+
+public class Ejemplo {  // <------------------ esta es la clase que contiene metodos y objetos
+
+    // Método que suma dos números enteros y devuelve el resultado
+    public int sumar(int num1, int num2) { //<-------------- este es el metodo
+        int resultado = num1 + num2;
+        return resultado;
+    }
+
+    // Método principal que es ejecutado cuando se corre el programa
+    public static void main(String[] args) {
+        Ejemplo ejemplo = new Ejemplo();
+        
+        // Llamada al método sumar y almacenamiento del resultado en una variable
+        int resultadoSuma = ejemplo.sumar(5, 3);
+        
+        // Impresión del resultado
+        System.out.println("El resultado de la suma es: " + resultadoSuma);
+    }
+}
+
+En este ejemplo, sumar es un método que toma dos parámetros (num1 y num2) y devuelve la suma esos dos números.
+Luego, en el método main, se crea una instancia de la clase Ejemplo y se llama al método sumar con los valores 5 y 3.

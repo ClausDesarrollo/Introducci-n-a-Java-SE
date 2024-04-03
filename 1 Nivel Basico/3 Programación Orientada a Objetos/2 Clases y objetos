@@ -69,6 +69,54 @@ sumaEnteros: Este es el nombre que le damos a nuestro objeto.
 new Sumador(): Aquí es donde realmente se crea el objeto.
                La palabra clave new indica que estamos creando una nueva instancia de la clase Sumador().
                Esta instancia se crea en la memoria y sumaEnteros se convierte en una referencia a esa instancia.
+parentesis (): en este caso en un objeto SIN argumentos es decir que cuenta con valores
+               definidos, pero si tenemos un metodo o contructor que pida argumentos:
+               private int sumarEnteros (int num1, int num2) {return num1 + num2;}
+               podemos operar con estos donde sean invocados.
+               se veria nuestro objetos de la siguiente manera:
+     
+    umador sumaEnteros = new Sumador(9, 8);
+
+               De esta manera podremso invocar nuestro objeto para operar.
+
+
+La capacidad de acceder a objetos y utilizar sus métodos y atributos desde diferentes clases es una de las características fundamentales de la programación orientada a objetos.
+
+Esto puede implicar crear una instancia del objeto en la clase desde la que se quiere invocar, o bien pasarlo como argumento a un método si se trata de un objeto que ya existe en otra parte del programa.
+
+Aquí tienes un ejemplo que muestra cómo se puede invocar un objeto desde otra clase:
+
+//////////////////////////
+// Clase Persona
+public class Persona {
+    private String nombre;
+    
+    public Persona(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public void saludar() {
+        System.out.println("Hola, soy " + nombre + "!");
+    }
+}
+
+// Clase Principal
+public class Principal {
+    public static void main(String[] args) {
+        // Crear un objeto de la clase Persona
+        Persona persona1 = new Persona("Juan");
+        
+        // Invocar el método saludar() del objeto persona1
+        persona1.saludar();
+    }
+}
+//////////////////////////
+
+
+En este ejemplo, la clase Persona define un objeto llamado persona1 y tiene un método saludar() que imprime un saludo con el nombre de la persona. Luego, en la clase Principal, se crea una instancia de la clase Persona llamada persona1 y se invoca su método saludar().
+
+Es importante tener en cuenta que, para acceder a un objeto desde otra clase, debes tener en cuenta la visibilidad de los atributos y métodos de la clase. Si son privados, solo serán accesibles dentro de la propia clase; si son públicos, podrán ser accedidos desde cualquier otra clase.
+
 
 
 
