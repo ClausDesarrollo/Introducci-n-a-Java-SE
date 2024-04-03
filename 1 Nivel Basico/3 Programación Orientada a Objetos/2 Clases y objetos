@@ -1,1 +1,78 @@
 2 Clases y objetos
+
+1 - Clases
+
+Una clase en Java se define utilizando la palabra clave class, seguida del nombre de la clase y el cuerpo de la clase entre llaves {}.
+
+Una clase en Java es una plantilla o un molde para crear objetos. 
+Cada objeto creado a partir de una clase tiene sus propios datos (atributos) y comportamientos (métodos).
+
+a) - Atributos:
+
+Son variables vacias que reservan espacio en la memoria de un tipo determinado de dato "int edad;" que usamos. Dentro de las clases podemso asignar valores a estos atributos para ser usados en nuestro metodo "main" u otros metodos "Persona persona1 = new Persona(30);"
+
+b) - Metodos:
+un método es un bloque de código que realiza una tarea específica y puede ser invocado desde otro lugar en el programa. Los métodos son parte de las clases en Java. 
+
+public class Ejemplo {  // <------------------ esta es la clase que contiene metodos y objetos
+
+    // Método que suma dos números enteros y devuelve el resultado
+    public int sumar(int num1, int num2) { //<-------------- este es el metodo
+        int resultado = num1 + num2;
+        return resultado;
+    }
+
+    // Método principal que es ejecutado cuando se corre el programa
+    public static void main(String[] args) {
+        Ejemplo ejemplo = new Ejemplo();
+        
+        // Llamada al método sumar y almacenamiento del resultado en una variable
+        int resultadoSuma = ejemplo.sumar(5, 3);
+        
+        // Impresión del resultado
+        System.out.println("El resultado de la suma es: " + resultadoSuma);
+    }
+}
+
+En este ejemplo, sumar es un método que toma dos parámetros (num1 y num2) y devuelve la suma esos dos números.
+Luego, en el método main, se crea una instancia de la clase Ejemplo y se llama al método sumar con los valores 5 y 3.
+
+
+2 - Objeto 
+
+Un objeto en Java es una instancia concreta de una clase, que tiene sus propios valores de atributos y puede realizar acciones definidas por los métodos de esa clase.
+
+public static void main(String[] args) {
+        // Crear un objeto de la clase Persona
+        Persona persona1 = new Persona("Juan", 30); <----- objeto 
+
+Un objeto en Java tiene los atributos 
+
+    public static void main(String[] args) {
+        // Crear un objeto de la clase Sumador
+        Sumador sumaEnteros = new Sumador();
+        
+        // Definir los números a sumar
+        int numero1 = 10;
+        int numero2 = 20;
+
+
+En Java, cuando queremos usar una clase para crear objetos, usamos la palabra clave new seguida del nombre de la clase y paréntesis, como en new Sumador(). Esto es lo que se llama una "instancia" de la clase, es decir, estamos creando un nuevo objeto que es una instancia de la clase Sumador.
+
+Se puede desglosar de la siguiente manera:
+
+Sumador sumaEnteros = new Sumador();
+
+nombreClase: Esto indica que queremos crear un objeto basado en la clase "nombreClase" 
+sumaEnteros: Este es el nombre que le damos a nuestro objeto. 
+             Es como una variable que contiene una referencia al objeto que estamos creando. Podemos usar este nombre para acceder a los métodos y atributos de la clase Sumador desde otra clase.
+new Sumador(): Aquí es donde realmente se crea el objeto.
+               La palabra clave new indica que estamos creando una nueva instancia de la clase Sumador().
+               Esta instancia se crea en la memoria y sumaEnteros se convierte en una referencia a esa instancia.
+
+
+
+
+
+
+ 

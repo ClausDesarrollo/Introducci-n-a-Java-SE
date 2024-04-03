@@ -24,11 +24,29 @@ Este es un comentario
 de varias líneas 
 */
 
-/*
-* Mi recomendacion personal es que los comentarios sean temporales, claros, visibles, compactos
-* esteticos y dedicados a uno mismo o a otras personas de manera clara para proporcionar 
-* pertinente. 
+/**
+*  Descripcíon: Este tipo de documentacion va antes de una funcion y es conocido como  
+*  javadocs, se ve en el codigo como una nota y da informacion del funcionamiento.
+*  Este es el formato estandar de una documentacion en javadocs.
+*  @param a cantidad inicial
+*  @param b cantidad final: solo acepta numeros enteros
+*  @return Suma nombre de la funcion, si todo funciona bien 
+*  podremos ver la documentacion como un pop up al colocar el mouse sobre el nombre de la 
+*  funcion dentro del codigo ya sea en la funcion o donde la mandamos a llamar 
 */
+
+otro ejemplo para documentar podrias ser  :
+
+/**
+ * Calcula la suma de dos números enteros.
+ * @param a El primer número entero.
+ * @param b El segundo número entero.
+ * @return La suma de los dos números enteros.
+ */
+public int sumar(int a, int b) {
+    return a + b;
+}
+
 
 3 - Declaración de variables:
 
