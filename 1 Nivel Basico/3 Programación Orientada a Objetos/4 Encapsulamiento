@@ -1,0 +1,67 @@
+4 Encapsulamiento 
+
+Es uno de los cuatro conceptos fundamentales de la programación orientada a objetos (POO), junto con la herencia, el polimorfismo y la abstracción. 
+
+- El encapsulamiento implica reunir datos y métodos relacionados en una sola unidad, es decir, una clase, y luego controlar el acceso a estos datos y métodos utilizando modificadores de acceso como:
+
+- public 
+- private
+- protected.
+
+Este es un ejemplo de como trabajamos con metodos y atributos con restricion de uso.
+
+///////////////////////////////////////////////////////////////////
+public class Ejemplo {
+    // Atributos privados
+    private int atributoPrivado; //solo puede ser accedido desde dentro de la clase Ejemplo.
+    
+    // Atributos públicos
+    public String atributoPublico; //puede ser accedido desde cualquier parte del código.
+    
+    // Atributos protegidos
+    protected double atributoProtegido; //puede ser accedido desde clases en el mismo paquete 
+                                          o subclases de Ejemplo.
+    
+    // Constructor
+    public Ejemplo(int atributoPrivado, String atributoPublico, double atributoProtegido) {
+        this.atributoPrivado = atributoPrivado;
+        this.atributoPublico = atributoPublico;
+        this.atributoProtegido = atributoProtegido;
+    }
+    
+    // Método privado
+    private void metodoPrivado() {
+        System.out.println("Este es un método privado.");
+    } //solo puede ser invocado desde dentro de la clase Ejemplo.
+    
+    // Método público
+    public void metodoPublico() {
+        System.out.println("Este es un método público.");
+    }// puede ser invocado desde cualquier parte del código.
+    
+    // Método protegido
+    protected void metodoProtegido() {
+        System.out.println("Este es un método protegido.");
+    }//puede ser invocado desde clases en el mismo paquete o subclases de Ejemplo.
+    
+    public static void main(String[] args) {
+        // Crear una instancia de Ejemplo
+        Ejemplo ejemplo = new Ejemplo(10, "Ejemplo", 5.5);
+        
+        // Acceder a los atributos y métodos desde fuera de la clase
+        System.out.println("Atributo público: " + ejemplo.atributoPublico);
+        ejemplo.metodoPublico();
+        
+        // No se puede acceder a atributos o métodos privados desde fuera de la clase
+        // ejemplo.atributoPrivado;  // Esto causaría un error de compilación
+        // ejemplo.metodoPrivado();  // Esto causaría un error de compilación
+        
+        // Los atributos protegidos y los métodos protegidos pueden ser accedidos desde clases en el mismo paquete o subclases
+        System.out.println("Atributo protegido: " + ejemplo.atributoProtegido);
+        ejemplo.metodoProtegido();
+    }
+}
+
+///////////////////////////////////////////////////////////////////
+
+El metodo Main muestra cómo se accede a los atributos y métodos desde fuera de la clase Ejemplo. Muestra que los atributos y métodos privados solo son accesibles dentro de la clase, mientras que los atributos y métodos públicos son accesibles desde cualquier parte del código. Los atributos y métodos protegidos pueden ser accesibles desde clases en el mismo paquete o subclases de la clase Ejemplo.
