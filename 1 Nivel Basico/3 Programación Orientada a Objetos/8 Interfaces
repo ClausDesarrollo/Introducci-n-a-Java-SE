@@ -1,0 +1,71 @@
+8 Interfaces
+
+Ahora, imagina que estás creando un juego en el que diferentes tipos de animales deben hacer sonidos y moverse. 
+Puedes definir una interfaz llamada Animal que declare dos métodos: hacerSonido() y moverse(). 
+Cada tipo de animal que agregues al juego, como perros, gatos y pájaros, deberá implementar estos métodos según cómo hacen sonidos y cómo se mueven.
+
+
+//////////////////////////////////////////////////
+// Definimos una interfaz llamada Animal
+interface Animal {
+    // Método abstracto para hacer un sonido
+    void hacerSonido();
+    
+    // Método abstracto para moverse
+    void moverse();
+}
+////////////////////////////////////////////////////
+
+Así, la interfaz Animal define un conjunto de comportamientos comunes que todos los animales en el juego deben tener. Cada tipo de animal que implemente esta interfaz deberá proporcionar su propia implementación para estos métodos, que puede ser diferente para cada animal. Por ejemplo, un perro puede ladrar y moverse de una manera, mientras que un gato puede maullar y moverse de otra.
+
+En resumen, la abstracción en programación en Java nos permite crear modelos generales y simplificados de conceptos (como figuras o animales) sin preocuparnos por los detalles específicos de implementación. Esto nos ayuda a organizar y estructurar nuestro código de manera clara y modular, lo que facilita su comprensión y mantenimiento a largo plazo.
+
+---------------------------------------------------------------------
+-- Veamos un ejemplo immplementando Clases Abstractas y Interfaces --
+---------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////
+// Definimos una interfaz llamada Calculadora
+interface Calculadora {
+    // Método abstracto para sumar dos números enteros
+    int sumar(int num1, int num2);
+}
+//////////////////////////////////////////////////////////////////
+
+
+En este ejemplo, creamos una interfaz llamada Calculadora que declara un método abstracto llamado sumar(). 
+Este es un método que toma dos parámetros de tipo entero (num1 y num2) y devuelve la suma de estos dos números como un entero.
+
+Ahora, cualquier clase que implemente esta interfaz deberá proporcionar su propia implementación para el método sumar(). 
+
+Por ejemplo:
+/////////////////////////////////////////////////////////////////
+// Implementación de la interfaz Calculadora
+class MiCalculadora implements Calculadora {
+    // Implementación del método sumar para sumar dos números enteros
+    public int sumar(int num1, int num2) {
+        return num1 + num2; // Retorna la suma de los dos números
+    }
+}
+/////////////////////////////////////////////////////////////////
+
+En esta implementación, la clase MiCalculadora implementa la interfaz Calculadora y proporciona su propia implementación para el método sumar(). 
+En este caso, solo devuelve la suma de los dos números enteros que se pasan como parámetros (valores a sumar).
+
+Luego, puedes utilizar esta implementación para la suma de dos números enteros:
+
+
+////////////////////////////////////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        // Crear un objeto de tipo MiCalculadora
+        MiCalculadora calculadora = new MiCalculadora();
+        
+        // Llamar al método sumar() para sumar dos números enteros
+        int resultado = calculadora.sumar(5, 3);
+        System.out.println("El resultado de la suma es: " + resultado);
+    }
+}
+/////////////////////////////////////////////////////////////////
+
+Aqui se ve cómo se puede usar una interfaz para definir un comportamiento común (en este caso, la suma de dos números enteros) y proporcionar diferentes implementaciones de este comportamiento según sea necesario en tu programa.

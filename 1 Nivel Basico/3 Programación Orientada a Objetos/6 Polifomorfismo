@@ -46,40 +46,54 @@ Cuando se llama al método hacerSonido(), se ejecuta la implementación de Perro
 
 2- Polimorfismo paramétrico (interfaces y clases genéricas):
 
-El polimorfismo paramétrico se logra a través de interfaces y clases genéricas. 
-Permite que una misma operación se aplique a diferentes tipos de objetos. Esto se logra definiendo métodos que pueden aceptar parámetros de tipos genéricos o interfaces, lo que permite que objetos de diferentes tipos sean tratados de manera uniforme.
+Imagina que tienes una caja de juguetes con diferentes tipos de juguetes, como autos, muñecas y pelotas. Todos estos juguetes tienen algo en común: ¡puedes jugar con ellos!
 
+El polimorfismo paramétrico es como tener una regla de juego que se aplica a todos los juguetes de la caja, sin importar qué tipo sean. Por ejemplo, si la regla de juego dice "hacer rodar el juguete", puedes aplicar esta regla tanto a los autos como a las pelotas. No necesitas saber exactamente qué tipo de juguete es, ¡solo necesitas saber que puedes hacerlo rodar!
 
+En términos de programación, imagina que la regla de juego es una función llamada "hacerRodar()" que acepta cualquier tipo de juguete como entrada. Puedes llamar a esta función con un auto, una muñeca o una pelota, ¡y todos ellos podrán rodar porque cumplen con la regla de hacer rodar el juguete!
 
-Aquí tienes un ejemplo con interfaces:
-
-////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 // Interfaz
 interface Animal {
-    void hacerSonido();
+    void hacerSonido(); // Esta es la regla de juego para todos los animales: 
+                        // deben tener un método para hacer un sonido.
 }
 
-// Implementación de la interfaz
+// Implementación de la interfaz para un perro
 class Perro implements Animal {
-    public void hacerSonido() {
-        System.out.println("El perro ladra.");
+    public void hacerSonido() {  // Este es el metodo con el que vamos a trabajar
+        System.out.println("El perro ladra. guaw guaw"); // Este es el sonido que hace un perro cuando juega.
+    // Es decir que se complementan! mientras los animales hacen sonidos , especificamos que queremos el 
+    // Sondio que hace el perro 
     }
 }
 
 // Clase principal
 public class Main {
+    // Este método acepta cualquier objeto que implemente la interfaz Animal y llama a su método hacerSonido().
     public static void hacerSonido(Animal animal) {
-        animal.hacerSonido();
+        animal.hacerSonido(); // Aquí estamos aplicando la regla de juego para que cualquier animal haga un sonido.
     }
 
     public static void main(String[] args) {
+        // Creamos un objeto de tipo Perro y lo referenciamos como un Animal.
         Animal miPerro = new Perro();
-        hacerSonido(miPerro); // Llama al método hacerSonido() de la clase Perro
+        // Llamamos al método hacerSonido(), pero no sabemos si el animal es un perro u otro animal.
+        hacerSonido(miPerro); 
+        // Llama al método hacerSonido() de la clase Perro, ¡pero podríamos haber pasado cualquier otro tipo de animal aquí!
     }
 }
-//////////////////////////////////////////////
 
-En este ejemplo, el método hacerSonido() acepta un parámetro de tipo Animal, lo que permite que se le pase cualquier objeto que implemente la interfaz Animal. Esto facilita la reutilización del código y la manipulación de diferentes tipos de objetos de manera uniforme.
 
-El polimorfismo es una característica poderosa de la POO que promueve la flexibilidad y la extensibilidad del código. Permite escribir programas más modulares y fáciles de mantener al tratar objetos de diferentes tipos de manera uniforme.
+Basicamente el polimorfismo paramétrico nos permite tratar a cualquier objeto que cumpla con una regla de juego (en este caso, implemente la interfaz Animal) de la misma manera, sin importar qué tipo de animal sea realmente. 
+
+En este código, hacerSonido() es la regla de juego que todos los animales deben seguir, y el método main() demuestra cómo podemos aplicar esta regla a un objeto de tipo Perro pero también podríamos haberlo aplicado a cualquier otro tipo de animal que implemente la interfaz Animal.
+
+Es decir que se complementan! 
+Regla 1) Todos los animales hacer un sonido
+Regla 2) El Perro ladra (guaw guaw)
+
+Asi que al iniciar el juego "main" elegimos el juego Animal y pedimos el sonido que hace el perro
+
+
 

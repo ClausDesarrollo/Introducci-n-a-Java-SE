@@ -1,0 +1,33 @@
+7 Clases abstractas.
+ 
+
+Consiste en simplificar la complejidad de un sistema enfocándose en los aspectos esenciales y ocultando los detalles innecesarios. 
+
+En Java, la abstracción se logra principalmente a través de clases abstractas e interfaces.
+
+Clases abstractas:
+
+Una clase abstracta es una clase que no puede ser instanciada directamente, es decir, no se pueden crear objetos directamente a partir de ella. En su lugar, se utilizan como plantillas para otras clases que extienden (heredan) de ellas. 
+
+Las clases abstractas pueden contener métodos abstractos (métodos sin implementación) y métodos concretos (métodos con implementación). 
+
+Las clases que heredan de una clase abstracta deben proporcionar implementaciones para todos los métodos abstractos que heredan.
+
+Imagina que estás construyendo un juego y necesitas representar diferentes tipos de figuras, como cuadrados, círculos y triángulos. 
+Para simplificar las cosas, puedes crear una clase llamada Figura que sirva como una plantilla básica para todas las figuras. Pero, ya que no sabes exactamente cómo se calculará el área de cada figura, puedes hacer que la clase Figura sea abstracta y definir un método abstracto calcularArea() que cada tipo de figura deberá implementar por sí misma.
+
+/////////////////////////////////////////////////////////////
+// Definimos una clase abstracta llamada Figura
+abstract class Figura {
+    // Método abstracto para calcular el área de la figura
+    abstract double calcularArea();
+}
+//////////////////////////////////////////////////////////////
+
+Así, la clase Figura representa una abstracción general de lo que significa ser una figura, pero no se preocupa por los detalles específicos de cada tipo de figura. Por ejemplo, un cuadrado y un círculo pueden tener formas y fórmulas de cálculo de área diferentes, pero ambos deben ser capaces de calcular su área.
+
+
+
+
+
+
