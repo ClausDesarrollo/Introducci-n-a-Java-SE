@@ -82,3 +82,4 @@ public class Main {
 En este ejemplo, el método hacerSonido() acepta un parámetro de tipo Animal, lo que permite que se le pase cualquier objeto que implemente la interfaz Animal. Esto facilita la reutilización del código y la manipulación de diferentes tipos de objetos de manera uniforme.
 
 El polimorfismo es una característica poderosa de la POO que promueve la flexibilidad y la extensibilidad del código. Permite escribir programas más modulares y fáciles de mantener al tratar objetos de diferentes tipos de manera uniforme.
+
