@@ -1,0 +1,84 @@
+6 Poliformismo
+
+
+Es la capacidad de un objeto de comportarse de diferentes maneras según el contexto en el que se utiliza.
+
+En Java conocemos el polimorfismo de subtipos (herencia) y el polimorfismo paramétrico (interfaces y clases genéricas).
+
+1- Polimorfismo de subtipos (herencia):
+
+El polimorfismo de subtipos se logra mediante la herencia. 
+En este caso, una clase hija puede ser tratada como su clase padre. 
+Esto significa que un objeto de la clase hija puede ser referenciado por una variable de tipo de la clase padre. 
+Cuando se llama a un método sobre ese objeto, Java buscará la implementación del método en la clase del objeto real en tiempo de ejecución.
+
+Aquí tienes un ejemplo:
+
+
+///////////////////////////////////////////////////////////////////
+// Clase padre
+class Animal {
+    public void hacerSonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+}
+
+// Clase hija
+class Perro extends Animal {
+    public void hacerSonido() {
+        System.out.println("El perro ladra.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal miAnimal = new Perro(); // Objeto Perro referenciado por variable Animal
+        miAnimal.hacerSonido(); // Llama al método hacerSonido() de la clase Perro
+    }
+}
+
+///////////////////////////////////////////////////////////////////
+
+
+En este ejemplo, aunque la variable miAnimal está declarada como tipo Animal, se refiere a un objeto de tipo Perro.
+Cuando se llama al método hacerSonido(), se ejecuta la implementación de Perro, ya que Java determina el método a ejecutar en tiempo de ejecución según el tipo real del objeto.
+
+
+2- Polimorfismo paramétrico (interfaces y clases genéricas):
+
+El polimorfismo paramétrico se logra a través de interfaces y clases genéricas. 
+Permite que una misma operación se aplique a diferentes tipos de objetos. Esto se logra definiendo métodos que pueden aceptar parámetros de tipos genéricos o interfaces, lo que permite que objetos de diferentes tipos sean tratados de manera uniforme.
+
+
+
+Aquí tienes un ejemplo con interfaces:
+
+////////////////////////////////////////////
+// Interfaz
+interface Animal {
+    void hacerSonido();
+}
+
+// Implementación de la interfaz
+class Perro implements Animal {
+    public void hacerSonido() {
+        System.out.println("El perro ladra.");
+    }
+}
+
+// Clase principal
+public class Main {
+    public static void hacerSonido(Animal animal) {
+        animal.hacerSonido();
+    }
+
+    public static void main(String[] args) {
+        Animal miPerro = new Perro();
+        hacerSonido(miPerro); // Llama al método hacerSonido() de la clase Perro
+    }
+}
+//////////////////////////////////////////////
+
+En este ejemplo, el método hacerSonido() acepta un parámetro de tipo Animal, lo que permite que se le pase cualquier objeto que implemente la interfaz Animal. Esto facilita la reutilización del código y la manipulación de diferentes tipos de objetos de manera uniforme.
+
+El polimorfismo es una característica poderosa de la POO que promueve la flexibilidad y la extensibilidad del código. Permite escribir programas más modulares y fáciles de mantener al tratar objetos de diferentes tipos de manera uniforme.
