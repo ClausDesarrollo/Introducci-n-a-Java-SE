@@ -1,1 +1,58 @@
 5 Herencia
+
+La herencia permite que una clase (llamada subclase o clase hija) "herede" atributos y métodos de otra clase (llamada superclase o clase padre).
+
+Relaciona las clases, promoviendo la reutilización del código. Crea un atributo o metodo en una clase y permite que otras clases puedan aproebechar estas como valores estaticos.
+
+1) Cómo funciona la herencia en Java?
+
+En Java, para establecer una relación de herencia entre dos clases, utilizamos la palabra clave "extends". 
+La clase hija hereda todos los atributos y métodos públicos o protegidos de la clase padre, y puede agregar nuevos atributos y métodos propios.
+
+
+/////////////////////////////////////////////////////////////////////
+// Clase padre
+public class Animal {
+    public void sonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+}
+
+// Clase hija que hereda de Animal
+public class Perro extends Animal {
+    public void sonido() {
+        System.out.println("El perro ladra.");
+    }
+}
+
+// Clase principal para probar las clases
+public class Main {
+    public static void main(String[] args) {
+        // Crear un objeto de la clase Perro
+        Perro miPerro = new Perro();
+        Animal miMascota = new Animal();
+        // Llamar al método sonido() de Perro
+        miPerro.sonido();
+        miMascota.sonido();
+    }
+}
+///////////////////////////////////////////////////////////////////
+
+2) Cómo se utiliza la herencia?
+
+1- En el ejemplo anterior tenemos una clase padre Animal.
+2- Heredamos el metodo sonido() de la clase Animal en otro archibo de clase de nombre Perro.
+3- La clase Perro usa la palabra extend para poder traer informacion de la clase Animal
+4- En la clase Main creamos dos objetos miPerro y miMascota
+5- Con estos objetos podemos aceder a la informacion de la clase padre y la clase hijo invocando su funcion en otra clase 
+
+
+En resumen, la herencia nos es util para poder llamar o enviar entre clases metodos y atributos, sin la necesidad de repetir codigo una y otra vez.
+
+
+Ventajas de la herencia:
+
+- Reutilización de código: La herencia permite reutilizar el código de la clase padre en las clases hijas, evitando la duplicación de código.
+- Facilita la organización: Permite organizar las clases en jerarquías, lo que facilita la comprensión y el mantenimiento del código.
+- Promueve la modularidad: Permite dividir el código en unidades más pequeñas y cohesivas, lo que facilita la gestión del proyecto.
+
