@@ -1,0 +1,61 @@
+1 Excepciones
+
+¿Qué son las excepciones?
+
+Imagina que estás jugando bloques de construcción tipo LEGO y estás tratando de construir una torre muy alta. Pero, de repente, ¡los bloques se caen y tu torre se derrumba! Eso es como una excepción en Java.
+
+Las excepciones son como situaciones inesperadas o problemas que pueden ocurrir mientras estamos escribiendo nuestro programa en Java. 
+Por ejemplo, si intentamos dividir un número por cero, eso causa una excepción porque ¡no se puede dividir por cero!
+
+¿Cómo funcionan las excepciones?
+
+Cuando ocurre una excepción, Java crea una especie de "mensaje" para decirnos qué salió mal. 
+Por ejemplo, si intentamos dividir 10 por cero, Java nos dice "¡Hey! No puedes dividir por cero, ¡eso no tiene sentido!" Esto nos ayuda a entender qué salió mal y por qué.
+
+Cuando una excepción ocurre en Java, se crea un objeto de la clase que representa la excepción específica. Este objeto contiene información sobre la excepción, como el tipo de error, el mensaje de error y la pila de llamadas (que muestra dónde ocurrió la excepción). La excepción se "lanza" o se "tira" al método que la puede manejar utilizando la palabra clave throw.
+
+Cuando una excepción se lanza dentro de un método, el flujo de control del programa se interrumpe y se busca un bloque de código llamado "manejador de excepciones" que pueda manejar la excepción. Este bloque de código se encuentra dentro de un bloque try-catch o try-catch-finally. Si se encuentra un manejador de excepciones adecuado, el programa continúa su ejecución normalmente después de que se maneje la excepción. Si no se encuentra un manejador de excepciones apropiado, el programa termina y se muestra un mensaje de error en la consola.
+
+
+¿Para qué sirven las excepciones?
+
+Cuando algo sale mal en nuestro programa, las excepciones nos ayudan a manejarlo de manera segura y ordenada. 
+Podemos atrapar la excepción, entender qué pasó y decidir qué hacer a continuación. 
+Por ejemplo, si estamos haciendo un juego y un personaje no puede moverse a un lugar, podemos mostrar un mensaje de error en la pantalla en lugar de que el juego se bloquee.
+
+Si mi personaje a caido fuera del camino a un lugar al cual no puede regresar podemos usar una excepcion que detecte que el personaje fuera del camino "si se presenta este error, mueve al personaje de regreso al camino"
+
+Las excepciones sirven para:
+
+1- Detectar y manejar errores.
+2- Mejorar la robustez del código.
+3- Facilitar el diagnóstico de problemas.
+
+Veamos un ejemplo:
+
+
+//////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        int numerador = 10;
+        int denominador = 0;
+
+        try {
+            int resultado = numerador / denominador;
+            System.out.println("El resultado de la división es: " + resultado);
+        } catch (ArithmeticException e) {
+            System.out.println("¡Oops! No se puede dividir por cero.");
+        }
+    }
+}
+//////////////////////////////////
+
+En este ejemplo, hemos utilizado un bloque try-catch para manejar la excepción que ocurre cuando intentamos dividir por cero. Si ocurre la excepción, el programa mostrará el mensaje "¡Oops! No se puede dividir por cero." en lugar de que el programa se bloquee. 
+
+¡Es como un paracaídas que nos ayuda a aterrizar suavemente cuando algo sale mal!
+
+
+
+
+
+
