@@ -86,4 +86,17 @@ public class Main {
 //////////////////////////////////////////////
 
 
-En este ejemplo, hemos creado una cola de números enteros utilizando la clase LinkedList, que implementa la interfaz Queue. Luego, agregamos algunos números a la cola usando el método offer(). Finalmente, sacamos los elementos de la cola en el orden FIFO (primero en entrar, primero en salir) usando el método poll().
+En este ejemplo, hemos creado una cola de números enteros utilizando la clase LinkedList, que implementa la interfaz Queue. 
+Luego, agregamos algunos números a la cola usando el método offer(). 
+Finalmente, sacamos los elementos de la cola en el orden FIFO (primero en entrar, primero en salir) usando el método poll().
+
+recuerda que el método poll() en Java, cuando se utiliza con una cola (Queue), tiene la función de retirar y devolver el elemento que está al frente de la cola. Si la cola está vacía, poll() no lanza una excepción, sino que devuelve null.
+
+Por lo tanto, cuando ves la línea System.out.println(cola.poll());, lo que está sucediendo es lo siguiente:
+
+- Se llama al método poll() en el objeto cola.
+- poll() retira el elemento del frente de la cola.
+- Ese elemento retirado es devuelto por el método.
+- System.out.println imprime el valor devuelto por poll(), que es el elemento que estaba al frente de la cola.
+
+Si la cola está vacía, imprimirá null. Es una manera eficiente de manejar colas sin preocuparse por posibles excepciones debido a colas vacías.
