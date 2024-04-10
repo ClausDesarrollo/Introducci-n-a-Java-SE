@@ -1,0 +1,34 @@
+5 Jerarquía de excepciones en Java
+
+Todas las excepciones en Java están organizadas en una jerarquía de clases, lo que significa que algunas excepciones son subtipos de otras excepciones. 
+Esta jerarquía facilita la organización y el manejo de las excepciones en nuestros programas.
+
+- La clase base de la jerarquía de excepciones es "java.lang.Throwable".
+
+Esta clase tiene dos subclases principales:
+
+A) java.lang.Exception:
+Esta clase representa excepciones que pueden ser atrapadas y manejadas en nuestro código. 
+Las excepciones de esta clase y sus subclases generalmente indican condiciones que el programador debe anticipar y manejar adecuadamente.
+
+B) java.lang.Error:
+Esta clase representa excepciones que generalmente están fuera del control del programador y que indican condiciones graves y no recuperables. 
+Las excepciones de esta clase y sus subclases generalmente indican problemas serios con el entorno de ejecución de Java, como falta de memoria o problemas de configuración del sistema.
+
+====================================================================================
+
+
+La clase Exception tiene varias subclases, algunas de las cuales son:
+
+- RuntimeException: 
+Esta es una clase especial de excepción que no necesita ser declarada en la cláusula throws o atrapada en un bloque try-catch. Incluye excepciones como NullPointerException, ArrayIndexOutOfBoundsException, ArithmeticException, etc.
+
+- IOException: Esta es una clase que representa excepciones relacionadas con operaciones de entrada/salida, como leer o escribir archivos.
+
+- SQLException: Esta es una clase que representa excepciones relacionadas con operaciones de base de datos.
+
+Y muchas más...
+
+Cada una de estas subclases puede tener más subclases específicas que agregan más detalles sobre la excepción específica que representa. Por ejemplo, IOException tiene subclases como FileNotFoundException, EOFException, etc.
+
+En resumen, la jerarquía de excepciones en Java nos ayuda a organizar y manejar diferentes tipos de excepciones de manera eficaz en nuestros programas, lo que facilita la identificación y el tratamiento de problemas en el código.

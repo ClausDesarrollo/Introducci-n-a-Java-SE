@@ -1,1 +1,167 @@
 2 Tipos de excepciones en Java
+
+En Java existen muchos tipos de excepciones y están diseñados para descubrir "QUE", "DONDE" y "QUE TIPO" de error a ocurrido. 
+Esto con el fin de agilizar la respuesta ante estos y identificar el conflicto y sus repercuciones
+
+
+Estas son las excepciones mas comunes en Java:
+
+1- ArithmeticException: 
+Esta excepción se lanza cuando ocurre un error aritmético, como la división por cero.
+
+///////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        int numerador = 10;
+        int denominador = 0;
+
+        // Intentamos dividir por cero
+        int resultado = numerador / denominador; // Esto lanzará una ArithmeticException
+        System.out.println("El resultado de la división es: " + resultado); // Esta línea no se ejecutará
+    }
+}
+////////////////////////////////////
+
+2- NullPointerException: 
+Se lanza cuando intentas acceder a un objeto que es null, es decir, que no apunta a ningún lugar en la memoria.
+
+///////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        String mensaje = null;
+
+        // Intentamos imprimir la longitud de un string que es null
+        int longitud = mensaje.length(); // Esto lanzará una NullPointerException
+        System.out.println("La longitud del mensaje es: " + longitud); // Esta línea no se ejecutará
+    }
+}
+////////////////////////////////////
+
+3- ArrayIndexOutOfBoundsException: 
+Ocurre cuando intentas acceder a un índice fuera del rango válido de un arreglo (array).
+
+////////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        int[] numeros = {1, 2, 3};
+
+        // Intentamos acceder a un índice fuera del rango del arreglo
+        int valor = numeros[3]; // Esto lanzará una ArrayIndexOutOfBoundsException
+        System.out.println("El valor en la posición 3 es: " + valor); // Esta línea no se ejecutará
+    }
+}
+////////////////////////////////////
+
+4- IllegalArgumentException: 
+Se lanza cuando un método recibe un argumento inválido.
+
+////////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        int edad = -5;
+
+        // Llamamos a un método que espera una edad positiva
+        imprimirEdad(edad); // Esto lanzará una IllegalArgumentException
+    }
+
+    public static void imprimirEdad(int edad) {
+        if (edad < 0) {
+            throw new IllegalArgumentException("La edad no puede ser negativa");
+        }
+        System.out.println("La edad es: " + edad);
+    }
+}
+////////////////////////////////////
+
+
+5- NumberFormatException: 
+Ocurre cuando se intenta convertir una cadena a un tipo numérico y la cadena no tiene el formato correcto.
+
+////////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        String numeroTexto = "abc";
+
+        // Intentamos convertir una cadena que no es un número a entero
+        int numero = Integer.parseInt(numeroTexto); // Esto lanzará una NumberFormatException
+        System.out.println("El número es: " + numero); // Esta línea no se ejecutará
+    }
+}
+////////////////////////////////////
+
+6- FileNotFoundException: 
+Se lanza cuando intentas acceder a un archivo que no existe en el sistema.
+
+////////////////////////////////////
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            File archivo = new File("archivo_que_no_existe.txt");
+            Scanner scanner = new Scanner(archivo);
+            while (scanner.hasNextLine()) {
+                String linea = scanner.nextLine();
+                System.out.println(linea);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo no pudo ser encontrado.");
+            e.printStackTrace();
+        }
+    }
+}
+////////////////////////////////////
+
+7- IOException: Esta excepción se produce cuando ocurre un error durante la operación de entrada/salida, como la lectura o escritura de archivos.
+
+////////////////////////////////////
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        BufferedReader lector = null;
+        try {
+            lector = new BufferedReader(new FileReader("archivo.txt"));
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error de entrada/salida.");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (lector != null) {
+                    lector.close();
+                }
+            } catch (IOException e) {
+                System.out.println("Ocurrió un error al cerrar el lector.");
+                e.printStackTrace();
+            }
+        }
+    }
+}
+////////////////////////////////////
+
+8- ClassNotFoundException: Ocurre cuando intentas cargar una clase que no existe en el sistema.
+
+////////////////////////////////////
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Intentamos cargar una clase que no existe
+            Class.forName("ClaseQueNoExiste");
+        } catch (ClassNotFoundException e) {
+            System.out.println("La clase especificada no pudo ser encontrada.");
+            e.printStackTrace();
+        }
+    }
+}
+////////////////////////////////////
+

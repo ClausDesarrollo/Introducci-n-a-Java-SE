@@ -1,0 +1,49 @@
+3 Bloques try-catch
+
+El bloque try-catch en Java es una estructura que nos permite manejar excepciones de manera controlada en nuestro código. 
+
+Si algo sale mal, en lugar de bloquear el flujo de el codigo y lanzar un mensaje de sistema . nos permite atrapar ese error o "excepcion" y contenerla para que actua el sistema como deseamos y muester la informacion de error mas detallada o menos tecnica. 
+
+Esto quiere decir que nos permite intentar ejecutar un bloque de código que podría generar una excepción, y luego manejar esa excepción si ocurre, en lugar de que el programa se bloquee o se comporte de manera inesperada.
+
+Hagamas una disecion de nuestro bloque try-catch:
+
+1- Bloque try:
+
+En el bloque try, colocamos el código que queremos ejecutar y que potencialmente puede lanzar una excepción. 
+Este código se ejecutará normalmente, y Java buscará cualquier excepción que ocurra dentro de este bloque.
+
+2- Bloque catch:
+
+En el bloque catch, especificamos el tipo de excepción que queremos manejar y proporcionamos el código para manejarle. 
+Si una excepción del tipo especificado ocurre dentro del bloque try, Java ejecutará el código dentro del bloque catch en lugar de que el programa se detenga.
+Puedes tener múltiples bloques catch para manejar diferentes tipos de excepciones, si es necesario.
+
+3- Bloque finally (opcional):
+
+Opcionalmente, puedes agregar un bloque finally después del bloque catch. 
+Este código dentro del bloque finally se ejecutará siempre, independientemente de si ocurre o no una excepción dentro del bloque try. 
+Esto se usa comúnmente para liberar recursos como cerrar archivos o conexiones de base de datos, independientemente de si ocurre una excepción o no.
+
+
+Asi es cómo se ve un bloque try-catch en Java:
+
+
+try {
+    // Bloque try: Colocamos el código que queremos ejecutar aquí
+    // Este código puede lanzar una excepción
+    // Por ejemplo, dividir por cero o acceder a un archivo que no existe
+    int resultado = numerador / denominador;
+    System.out.println("El resultado de la división es: " + resultado);
+} catch (ArithmeticException e) {
+    // Bloque catch: Manejamos la excepción que ocurrió dentro del bloque try
+    // Especificamos el tipo de excepción que queremos manejar (ArithmeticException en este caso)
+    // Proporcionamos el código para manejar la excepción aquí
+    System.out.println("¡Oops! Algo salió mal al dividir.");
+    e.printStackTrace(); // Imprime información detallada sobre la excepción
+} finally {
+    // Bloque finally (opcional): Colocamos el código que queremos ejecutar siempre aquí
+    // Este código se ejecutará independientemente de si ocurre una excepción o no
+    // Por ejemplo, cerrar archivos o conexiones de base de datos
+    System.out.println("Este bloque siempre se ejecutará, ¡incluso si hay una excepción!");
+}

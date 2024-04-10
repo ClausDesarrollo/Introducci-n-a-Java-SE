@@ -1,0 +1,44 @@
+4 Lanzamiento de excepciones
+
+Un día, tu amigo lanza la pelota muy fuerte y la pelota te golpea. 
+Eso es como lanzar una excepción en Java.
+
+1- ¿Qué es lanzar una excepción?
+Lanzar una excepción es como decir "¡Ayuda! ¡Algo salió mal!" cuando algo inesperado sucede en tu programa. 
+Cuando ocurre una situación problemática, puedes lanzar una excepción para decirle a Java que algo no está bien.
+
+2- ¿Cómo funciona el lanzamiento de excepciones?
+Cuando lanzas una excepción en Java, estás enviando una señal de que algo inesperado ha ocurrido. 
+Esto detiene el flujo normal de ejecución del programa y hace que Java busque un lugar donde se pueda manejar esa excepción (bloque "catch"). 
+Si no encuentras un lugar para manejar la excepción, ¡tu programa puede bloquearse!
+
+3- ¿Por qué lanzar excepciones?
+Lanzar excepciones es como pedir ayuda cuando necesitas resolver un problema. Cuando algo inesperado ocurre en tu programa, lanzar una excepción te permite notificar a otras partes del programa sobre lo que sucedió para que puedan tomar medidas apropiadas.
+
+
+Veamos un ejemplo:
+Supongamos que estás escribiendo un juego y uno de tus personajes necesita moverse a una posición que está fuera del límite del mapa. 
+En lugar de dejar que el personaje se mueva a esa posición y causar problemas, puedes lanzar una excepción para detener el movimiento y notificar al juego que algo está mal.
+
+/////////////////////////////////
+public class Personaje {
+    private int posicionX;
+    private int posicionY;
+    private int limiteMapa = 100; // Supongamos que el tamaño del mapa es 100x100
+
+    public void mover(int nuevaPosX, int nuevaPosY) {
+        if (nuevaPosX < 0 || nuevaPosY < 0 || nuevaPosX >= limiteMapa || nuevaPosY >= limiteMapa) {
+            // Si la nueva posición está fuera del límite del mapa, lanzamos una excepción
+            throw new IllegalArgumentException("La nueva posición está fuera del límite del mapa");
+        }
+        // Si la nueva posición está dentro del límite del mapa, actualizamos la posición del personaje
+        this.posicionX = nuevaPosX;
+        this.posicionY = nuevaPosY;
+    }
+}
+///////////////////////////////////
+
+
+En este ejemplo, la clase Personaje tiene un método mover() que intenta mover al personaje a una nueva posición. 
+Si la nueva posición está fuera del límite del mapa, lanzamos una excepción (IllegalArgumentException) para detener el movimiento y notificar al juego sobre el problema. 
+Esto ayuda a mantener nuestro juego funcionando sin problemas y evita situaciones problemáticas.
