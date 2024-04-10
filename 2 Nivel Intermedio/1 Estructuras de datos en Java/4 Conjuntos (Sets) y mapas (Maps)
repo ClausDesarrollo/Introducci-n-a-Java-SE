@@ -1,1 +1,61 @@
 4 Conjuntos (Sets) y mapas (Maps)
+
+
+A) Conjuntos (Sets):
+
+En Java, los conjuntos (Sets) son colecciones que no permiten elementos duplicados. (como en matematicas)
+
+Esto significa que cada elemento en un conjunto es único. 
+
+- Los conjuntos se utilizan cuando queremos evitar la repetición de elementos y cuando el orden de los elementos no es importante.
+
+- La interfaz Set es parte del paquete java.util y extiende la interfaz Collection.
+
+- Algunas de las implementaciones comunes de la interfaz Set son HashSet, LinkedHashSet y TreeSet.
+
+        * HashSet almacena los elementos en una tabla hash, es la implementación más eficiente pero no garantiza ningún orden al iterar.
+        * LinkedHashSet mantiene un orden de inserción de los elementos.
+        * TreeSet almacena los elementos en un árbol rojo-negro, ordenándolos según su valor natural o por un Comparator proporcionado al crear el conjunto.
+
+Por ejemplo, si quieres crear un conjunto de enteros y agregar algunos elementos, podrías hacerlo de la siguiente manera:
+
+///////////////////////////////////
+Set<Integer> conjunto = new HashSet<>();
+conjunto.add(1);
+conjunto.add(2);
+conjunto.add(3);
+///////////////////////////////////
+
+Si intentas agregar un elemento duplicado, como conjunto.add(2);, este no se agregará porque 2 ya está en el conjunto.
+
+Los conjuntos son muy útiles cuando necesitas asegurarte de que no haya elementos repetidos y son una parte fundamental de muchas operaciones de colección en Java. 
+
+
+B) Mapas (Maps):
+
+Los Mapas (Maps) en Java son estructuras de datos que almacenan elementos en pares de clave-valor. 
+Cada clave es única y se utiliza para acceder a su valor correspondiente. 
+
+- Los mapas son parte del Marco de Colecciones de Java (java.util).
+- No pueden tener claves duplicadas, pero sí pueden tener valores duplicados.
+- Algunas de las implementaciones comunes de la interfaz Map son HashMap, LinkedHashMap, y TreeMap.
+        * HashMap es la implementación más común y no mantiene ningún orden.
+        * LinkedHashMap mantiene el orden de inserción de los elementos.
+        * TreeMap ordena los elementos basándose en sus claves, según su orden natural o un comparador proporcionado.
+
+Por ejemplo, si quieres almacenar nombres de países y sus capitales, podrías hacerlo así:
+
+/////////////////////////////////////////////////
+Map<String, String> capitales = new HashMap<>();
+capitales.put("España", "Madrid");
+capitales.put("Francia", "París");
+capitales.put("Italia", "Roma");
+//////////////////////////////////////////////////
+
+Para acceder a un valor, usarías la clave correspondiente:
+
+/////////////////////////////////////////////////
+String capitalEspaña = capitales.get("España"); // Devuelve "Madrid"
+/////////////////////////////////////////////////
+
+Los mapas son muy útiles cuando necesitas buscar rápidamente valores basados en claves y son una parte esencial de muchas aplicaciones en Java.

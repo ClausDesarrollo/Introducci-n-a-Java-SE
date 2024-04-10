@@ -1,0 +1,53 @@
+1 Lectura y escritura de archivos
+
+Escribir y leer archivos en Java es una tarea común y esencial en la programación. Aquí te explico cómo hacerlo:
+
+Escribir en un archivo: Para escribir en un archivo en Java, puedes usar la clase FileWriter junto con BufferedWriter. Aquí tienes un ejemplo básico:
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class EscribirArchivo {
+    public static void main(String[] args) {
+        String rutaArchivo = "miArchivo.txt";
+        String contenido = "¡Hola, mundo!";
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))) {
+            bw.write(contenido);
+            System.out.println("Archivo escrito satisfactoriamente.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Este código crea un archivo llamado miArchivo.txt y escribe la cadena ¡Hola, mundo! en él.
+
+Leer de un archivo: Para leer de un archivo, puedes usar la clase FileReader junto con BufferedReader. Aquí tienes un ejemplo:
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class LeerArchivo {
+    public static void main(String[] args) {
+        String rutaArchivo = "miArchivo.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Este código lee el contenido del archivo miArchivo.txt y lo imprime en la consola.
+
+Recuerda que siempre debes manejar las excepciones IOException que pueden ocurrir al trabajar con archivos. Además, es una buena práctica usar try-with-resources para asegurarte de que los recursos se cierran automáticamente después de su uso.
+
