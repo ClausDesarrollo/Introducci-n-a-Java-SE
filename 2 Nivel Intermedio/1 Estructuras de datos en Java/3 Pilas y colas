@@ -1,1 +1,89 @@
 3 Pilas y colas
+
+A) Pilas (Stacks):
+
+Imagina que estás apilando libros uno encima del otro. 
+Cuando agregas un nuevo libro, lo colocas en la parte superior de la pila. 
+Cuando quieres sacar un libro, tomas el que está en la parte superior primero. 
+Una pila en Java es como esa pila de libros, donde solo puedes agregar y sacar elementos desde la parte superior.
+
+Ejemplo de una pila de números:
+
+| 30 |
+| 20 |
+| 10 |
+ -----
+
+En esta pila, el número 30 está en la parte superior, seguido del 20 y luego del 10.
+
+En Java, podemos usar la clase Stack de la biblioteca estándar para crear pilas y realizar operaciones en ellas.
+
+////////////////////////////////////////////
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+        Stack<Integer> pila = new Stack<>();
+
+        // Agregar elementos a la pila
+        pila.push(10);
+        pila.push(20);
+        pila.push(30);
+
+        // Sacar elementos de la pila (en orden LIFO - último en entrar, primero en salir)
+        System.out.println(pila.pop()); // Imprimirá 30
+        System.out.println(pila.pop()); // Imprimirá 20
+        System.out.println(pila.pop()); // Imprimirá 10
+    }
+}
+////////////////////////////////////////////
+
+1) Hemos creado una pila de números enteros utilizando la clase Stack. 
+2) Luego, agregamos algunos números a la pila usando el método push().
+3) Finalmente, sacamos los elementos de la pila en el orden LIFO (último en entrar, primero en salir) usando el método pop().
+
+
+
+B) Colas (Queues):
+
+Imagina que estás haciendo fila para subirte a un autobús. 
+El primero en llegar es el primero en subir al autobús, y cuando el autobús llega, el primero en la fila es el primero en subir. 
+Una cola en Java es como esa fila, donde los elementos se agregan al final y se sacan del principio.
+
+Ejemplo de una cola de números:
+
+------
+| 10 |
+| 20 |
+| 30 |
+ -----
+
+En esta cola, el número 10 está en la parte delantera (primer elemento en ser sacado) y el número 30 está en la parte posterior (último elemento en ser sacado).
+
+Ejemplo de Colas en Java:
+
+En Java, podemos usar la interfaz "Queue" de la biblioteca estándar para crear colas y realizar operaciones en ellas.
+
+//////////////////////////////////
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+    public static void main(String[] args) {
+        Queue<Integer> cola = new LinkedList<>();
+
+        // Agregar elementos a la cola
+        cola.offer(10);
+        cola.offer(20);
+        cola.offer(30);
+
+        // Sacar elementos de la cola (en orden FIFO - primero en entrar, primero en salir)
+        System.out.println(cola.poll()); // Imprimirá 10
+        System.out.println(cola.poll()); // Imprimirá 20
+        System.out.println(cola.poll()); // Imprimirá 30
+    }
+}
+//////////////////////////////////////////////
+
+
+En este ejemplo, hemos creado una cola de números enteros utilizando la clase LinkedList, que implementa la interfaz Queue. Luego, agregamos algunos números a la cola usando el método offer(). Finalmente, sacamos los elementos de la cola en el orden FIFO (primero en entrar, primero en salir) usando el método poll().

@@ -1,2 +1,45 @@
 1 Arrays y ArrayList
 
+Arrays:
+
+Imagina que tienes una caja donde guardas tus juegos. Cada juego tiene un número en este que indica su posición en la caja. 
+Un Array en Java es como esa caja de juguos donde puedes guardar múltiples elementos (como números, letras o cualquier otro tipo de dato) y cada elemento tiene una posición específica.
+
+Ejemplo de un Array de números:
+
+//////////////////////////////////////
+int[] numeros = {10, 20, 30, 40, 50};
+//////////////////////////////////////
+
+En este ejemplo, numeros es un Array que contiene 5 elementos numéricos. Cada elemento tiene una posición específica en el Array. 
+Por ejemplo, el número 10 está en la posición 0, el número 20 está en la posición 1, y así sucesivamente.
+
+Para acceder a un elemento específico en un Array, simplemente especificamos su posición. 
+
+Por ejemplo, numeros[0] nos dará el valor 10.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ArrayLists:
+
+Ahora, imagina que tu caja de jugos se queda pequeña y necesitas una bolsa que pueda expandirse para agregar más jugegos. 
+Un ArrayList en Java es como esa bolsa expandible donde puedes almacenar una lista de elementos y agregar o eliminar elementos fácilmente.
+
+
+Veamos un ejemplo de un ArrayList de nombres:
+
+//////////////////////////////////////////////////
+import java.util.ArrayList;
+
+ArrayList<String> nombres = new ArrayList<String>();
+nombres.add("Ana");
+nombres.add("Juan");
+nombres.add("María");
+////////////////////////////////////////////////////
+
+
+En este ejemplo, nombres es un ArrayList que puede almacenar nombres de personas. Podemos agregar nuevos nombres utilizando el método add() y eliminar nombres utilizando el método remove().
+
+Una de las ventajas de los ArrayLists sobre los Arrays es que no necesitas especificar su tamaño inicial y pueden crecer según sea necesario. 
+
+

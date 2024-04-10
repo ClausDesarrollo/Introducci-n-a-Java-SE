@@ -1,1 +1,81 @@
 2 Listas enlazadas
+
+Imagina que estás armando un tren con bloques de construcción. 
+Cada bloque representa una estación y tiene una flecha que apunta a la siguiente estación. 
+Una lista enlazada en Java es como tu tren de bloques de construcción, donde cada estación (o nodo) tiene un enlace que apunta a la siguiente estación.
+
+Lista enlazada:
+
+Una lista enlazada es una colección de elementos llamados nodos. Cada nodo contiene dos partes principales: el valor del elemento y un enlace (o puntero ->) que apunta al siguiente nodo en la lista.
+
+Veamos un ejemplo de lista enlazada de números para explicarlo mejor:
+
+Inicio -> [10] -> [20] -> [30] -> [40] -> [null]
+
+
+En esta lista enlazada, cada nodo tiene un valor numérico y un enlace que apunta al siguiente nodo. El nodo inicial (Inicio) es el punto de partida de la lista. El último nodo tiene un enlace nulo, lo que indica que es el final de la lista.
+
+En Java, podemos implementar una lista enlazada utilizando una clase Nodo que representa cada nodo y una clase ListaEnlazada que contiene métodos para manipular la lista.
+
+/////////////////////////////////////////////////////////////
+class Nodo {
+    int valor;
+    Nodo siguiente;
+
+    Nodo(int valor) {
+        this.valor = valor;
+        this.siguiente = null;
+    }
+}
+
+class ListaEnlazada {
+    Nodo inicio;
+
+    ListaEnlazada() {
+        this.inicio = null;
+    }
+
+    void agregar(int valor) {
+        Nodo nuevoNodo = new Nodo(valor);
+        if (inicio == null) {
+            inicio = nuevoNodo;
+        } else {
+            Nodo temp = inicio;
+            while (temp.siguiente != null) {
+                temp = temp.siguiente;
+            }
+            temp.siguiente = nuevoNodo;
+        }
+    }
+
+    void imprimir() {
+        Nodo temp = inicio;
+        while (temp != null) {
+            System.out.print(temp.valor + " -> ");
+            temp = temp.siguiente;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ListaEnlazada lista = new ListaEnlazada();
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+        lista.agregar(40);
+        lista.imprimir(); // Imprimirá: 10 -> 20 -> 30 -> 40 -> null
+    }
+}
+/////////////////////////////////////////////////////////////
+
+En este ejemplo, la clase Nodo representa un nodo en la lista enlazada. Tiene un valor y un enlace al siguiente nodo. La clase ListaEnlazada contiene métodos para agregar elementos a la lista y para imprimir la lista enlazada. Al ejecutar el código, verás que la lista enlazada se imprime como se muestra en el ejemplo anterior. Cada nodo está conectado al siguiente nodo mediante enlaces, formando así una lista enlazada.
+
+
+
+
+
+
+
+
