@@ -1,0 +1,44 @@
+2 Streams
+
+Los streams permiten realizar operaciones como filtrado, mapeo, reducción y ordenamiento de manera más concisa y expresiva que utilizando los enfoques tradicionales basados en bucles.
+
+A) Características principales de los streams:
+
+- Secuencia de elementos: 
+Un stream es una secuencia de elementos que pueden ser de cualquier tipo (objetos, primitivos, etc.). Los streams pueden ser generados a partir de colecciones de datos, arreglos, o de manera manual.
+
+- Operaciones intermedias: 
+Las operaciones intermedias son aquellas que se pueden encadenar en un stream y modifican o transforman los elementos de manera intermedia. Algunas operaciones intermedias comunes son filter, map, sorted, distinct, entre otras.
+
+- Operaciones terminales: 
+Las operaciones terminales son aquellas que producen un resultado final o realizan una acción final en el stream. Algunas operaciones terminales comunes son forEach, collect, reduce, count, anyMatch, allMatch, noneMatch, entre otras.
+
+/////////////////////////////////////
+List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+// Filtrar los números pares y luego imprimirlos
+numeros.stream()
+       .filter(numero -> numero % 2 == 0)
+       .forEach(System.out::println);
+
+// Calcular la suma de todos los números
+int suma = numeros.stream()
+                 .reduce(0, Integer::sum);
+System.out.println("Suma: " + suma);
+/////////////////////////////////////
+
+En este ejemplo:
+1- Se crea un stream a partir de una lista de números. 
+2- Luego, se encadena una operación intermedia filter para filtrar solo los números pares y una operación terminal forEach para imprimirlos. 
+3- Además, se utiliza una operación terminal reduce para calcular la suma de todos los números.
+
+B) Beneficios de usar streams:
+
+1- Expresividad y legibilidad: 
+Los streams permiten escribir código de manera más concisa y expresiva, lo que facilita su comprensión y mantenimiento.
+
+2- Eficiencia: 
+Los streams pueden aprovechar el paralelismo de manera transparente, lo que puede mejorar el rendimiento en operaciones sobre conjuntos de datos grandes.
+
+3- Composición de operaciones: 
+Los streams permiten encadenar múltiples operaciones de manera fluida, lo que facilita la composición de la lógica de negocio.

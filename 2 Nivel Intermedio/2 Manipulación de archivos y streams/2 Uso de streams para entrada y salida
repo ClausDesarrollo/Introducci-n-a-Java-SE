@@ -1,1 +1,69 @@
 2 Uso de streams para entrada/salida
+
+En Java, un "stream" es una secuencia de datos que se puede leer o escribir. 
+Hay diferentes tipos de streams para manejar entrada y salida de datos. 
+
+Los streams de entrada se utilizan para leer datos desde una fuente, como un archivo o la entrada estándar (teclado), mientras que los streams de salida se utilizan para escribir datos en un destino, como un archivo o la salida estándar (consola).
+
+Veamos algunos ejemplos de uso:
+
+A) Streams de Entrada (InputStream): 
+Estos son utilizados para leer datos desde una fuente.
+
+//////////////////////////////////////////////////////////////////////
+// Ejemplo de lectura de un archivo usando FileInputStream
+try (InputStream inputStream = new FileInputStream("archivo.txt")) {
+    int byteLeido;
+    while ((byteLeido = inputStream.read()) != -1) {
+        // Procesar byteLeido
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+//////////////////////////////////////////////////////////////////////
+
+B) Streams de Salida (OutputStream): 
+Estos son utilizados para escribir datos en un destino.
+
+//////////////////////////////////////////////////////////////////////
+// Ejemplo de escritura en un archivo usando FileOutputStream
+try (OutputStream outputStream = new FileOutputStream("archivo.txt")) {
+    String texto = "Hola, mundo!";
+    byte[] bytes = texto.getBytes();
+    outputStream.write(bytes);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+//////////////////////////////////////////////////////////////////////
+
+C) Streams de Entrada Caracter (Reader): 
+
+Estos son utilizados para leer datos de caracteres desde una fuente.
+
+//////////////////////////////////////////////////////////////////////
+// Ejemplo de lectura de un archivo de texto usando FileReader
+try (Reader reader = new FileReader("archivo.txt")) {
+    int caracterLeido;
+    while ((caracterLeido = reader.read()) != -1) {
+        // Procesar caracterLeido (como un char)
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+//////////////////////////////////////////////////////////////////////
+
+D) Streams de Salida Caracter (Writer): 
+
+Estos son utilizados para escribir datos de caracteres en un destino.
+
+//////////////////////////////////////////////////////////////////////
+// Ejemplo de escritura en un archivo de texto usando FileWriter
+try (Writer writer = new FileWriter("archivo.txt")) {
+    String texto = "Hola, mundo!";
+    writer.write(texto);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+//////////////////////////////////////////////////////////////////////
+
+Es una manera de tratar con documentos para escribir y leer informacion 

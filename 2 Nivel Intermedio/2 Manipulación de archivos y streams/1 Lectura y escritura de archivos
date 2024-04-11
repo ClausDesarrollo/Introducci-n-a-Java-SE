@@ -2,8 +2,11 @@
 
 Escribir y leer archivos en Java es una tarea común y esencial en la programación. Aquí te explico cómo hacerlo:
 
-Escribir en un archivo: Para escribir en un archivo en Java, puedes usar la clase FileWriter junto con BufferedWriter. Aquí tienes un ejemplo básico:
+A) Escribir en un archivo: 
+Para escribir en un archivo en Java, puedes usar la clase FileWriter junto con BufferedWriter. 
+Aquí tienes un ejemplo básico:
 
+///////////////////////////////////
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,12 +24,16 @@ public class EscribirArchivo {
         }
     }
 }
-
+/////////////////////////////////////
 
 Este código crea un archivo llamado miArchivo.txt y escribe la cadena ¡Hola, mundo! en él.
 
-Leer de un archivo: Para leer de un archivo, puedes usar la clase FileReader junto con BufferedReader. Aquí tienes un ejemplo:
+B) Leer de un archivo: 
 
+Para leer de un archivo, puedes usar la clase FileReader junto con BufferedReader. 
+Aquí tienes un ejemplo:
+
+//////////////////////////////////////////////////
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -45,9 +52,54 @@ public class LeerArchivo {
         }
     }
 }
-
+////////////////////////////////////////////////
 
 Este código lee el contenido del archivo miArchivo.txt y lo imprime en la consola.
 
-Recuerda que siempre debes manejar las excepciones IOException que pueden ocurrir al trabajar con archivos. Además, es una buena práctica usar try-with-resources para asegurarte de que los recursos se cierran automáticamente después de su uso.
+Recuerda que siempre debes manejar las excepciones IOException que pueden ocurrir al trabajar con archivos. (puedes verlos en el nivel 1 en el punto 4 manejo de excepciones)
+
+Además, es una buena práctica usar try-with-resources para asegurarte de que los recursos se cierran automáticamente después de su uso.
+
+
+Nota :
+
+Recuerda que "try-with-resources" se encarga automáticamente de cerrar los recursos cuando ya no son necesarios, incluso si ocurren excepciones.
+
+Impresindible para el manejo de documentos y recursos que puedan seguir consumiendo recursos. 
+
+Este es un ejemplo de cómo podrías usar try-with-resources con un FileInputStream para leer un archivo:
+
+
+///////////////////////////////////////////
+import java.io.*;
+
+public class TryWithResourcesExample {
+    public static void main(String[] args) {
+        // Definimos el nombre del archivo que queremos leer
+        String fileName = "ejemplo.txt";
+
+        // Usamos try-with-resources para abrir el FileInputStream
+        try (FileInputStream fis = new FileInputStream(fileName)) {
+            int content;
+            // Leemos el archivo byte a byte
+            while ((content = fis.read()) != -1) {
+                // Convertimos el byte a caracter e imprimimos en consola
+                System.out.print((char) content);
+            }
+        } catch (IOException e) {
+            // Capturamos cualquier excepción de E/S que ocurra
+            e.printStackTrace();
+        }
+    }
+}
+//////////////////////////////////////////
+
+En este ejemplo:
+
+1- FileInputStream se abre dentro del bloque try y se declara como un recurso a ser utilizado.
+2- No hay necesidad de cerrar explícitamente el FileInputStream con fis.close(). Esto se maneja automáticamente al final del bloque try.
+3- Si ocurre alguna excepción dentro del bloque try, el FileInputStream se cerrará automáticamente antes de propagar la excepción hacia afuera.
+4- La clase FileInputStream implementa la interfaz AutoCloseable, por lo que es elegible para su uso con try-with-resources.
+
+
 

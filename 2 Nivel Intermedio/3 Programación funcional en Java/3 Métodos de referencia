@@ -1,0 +1,49 @@
+3 Métodos de referencia
+
+Imagina que quieres hacer una torre con bloques. 
+Normalmente, podrías construir la torre colocando uno a uno cada bloque en su lugar. 
+Pero, ¿qué pasa si alguien ya ha construido una torre exactamente igual y puedes simplemente señalar hacia ella en lugar de construir una nueva desde cero? 
+
+Bueno, eso es más o menos lo que hacen los "métodos de referencia" en Java.
+
+Es como si estuvieras apuntando hacia ese método y diciendo: "Oye, quiero hacer lo mismo que haces tú". Entonces, Java toma ese método y lo usa en lugar de tener que escribir todo el código nuevamente.
+
+"NO RE INVENTES LA RUEDA!"
+
+Imagina que tienes una lista de números y quieres imprimir cada uno de ellos en la consola. En lugar de escribir un bucle para recorrer la lista y luego imprimir cada número, puedes simplemente referenciar al método System.out.println, que ya sabe cómo imprimir cosas en la consola. 
+
+Es como decir: "Oye, método println, haz tu trabajo aquí".
+
+Mira este ejemplo:
+/////////////////////////////////////////
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creamos una lista de números
+        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Usamos el método forEach para imprimir cada número en la consola
+        // En lugar de escribir una función lambda para imprimir cada número,
+        // usamos un método de referencia a System.out.println, que ya sabe cómo imprimir cosas en la consola.
+        // Es como decir "System.out.println, haz tu trabajo aquí" sin tener que escribir todo el código de la función lambda.
+        numeros.forEach(System.out::println);
+    }
+}
+///////////////////////////////////////////
+
+Explicación detallada:
+
+1- import java.util.Arrays;:  Importamos la clase Arrays para usar el método asList() que convierte un array en una lista.
+2- import java.util.List;:    Importamos la clase List para trabajar con listas.
+3- public class Main { ... }: Definimos una clase principal llamada Main.
+4- public static void main(String[] args) { ... }: 
+                              Definimos el método principal main donde comienza la ejecución del programa.
+5- List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);: 
+                              Creamos una lista de números usando el método asList() de la clase Arrays.
+6- numeros.forEach(System.out::println);: 
+                              Usamos el método forEach de la lista para recorrer todos los elementos de la lista. En lugar de pasar una función lambda para imprimir cada número, utilizamos un método de referencia System.out::println, que se refiere al método println de la clase System.out. 
+                              Esto significa que estamos diciendo "Oye, println, haz tu trabajo aquí" sin tener que escribir todo el código de la función lambda.
+
+En resumen, en este ejemplo utilizamos un método de referencia System.out::println para imprimir cada número en la lista, lo que hace que nuestro código sea más simple y fácil de entender.

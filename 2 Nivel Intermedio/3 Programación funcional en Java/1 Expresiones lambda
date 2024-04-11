@@ -1,0 +1,116 @@
+1 Expresiones lambda
+
+Que es Lambda
+
+La expresion "lambda" en el contexto de las expresiones lambda en Java no es un acrónimo, sino que se refiere al concepto matemático de función anónima representada por el símbolo λ en el cálculo lambda.
+
+ Se adoptó para representar estas funciones anónimas, en referencia al cálculo lambda y su uso en la definición de funciones. 
+
+ Por lo tanto, una "expresión lambda" en Java es una manera de expresar una función anónima en el código, utilizando la sintaxis que mencioné anteriormente.
+
+
+Nota: Las expresiones lambda son útiles para funciones que se utilizan una vez y no necesitan ser reutilizadas en otras partes del código. 
+Si la lógica que estás encapsulando se reutilizará en varios lugares, puede ser preferible definir un método convencional y reutilizarlo en lugar de una expresión lambda. 
+
+Para entender mejor las expresiones lambda, veamos su sintaxis y algunos ejemplos de su uso práctico:
+
+A) Sintaxis de una expresión lambda en Java:
+
+La sintaxis básica de una expresión lambda en Java es la siguiente:
+
+/////////////////////////// 
+(parametros) -> expresion
+///////////////////////////
+
+1- Parámetros: Son los parámetros que recibe la función. Pueden ser de diferentes tipos y pueden estar vacíos si la función no recibe ningún parámetro.
+2- Flecha (->): Separador entre los parámetros y el cuerpo de la expresión lambda.
+3- Expresión: Es la acción que realiza la función. Puede ser una única expresión o un bloque de código
+
+Ejemplo de uso práctico:
+
+
+1 - Ordenamiento de una lista 
+///////////////////////////////////////////////////
+List<String> nombres = Arrays.asList("Juan", "María", "Carlos", "Ana");
+
+// Antes de Java 8
+Collections.sort(nombres, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return a.compareTo(b);
+    }
+});
+
+// Con expresión lambda (desde Java 8)
+Collections.sort(nombres, (a, b) -> a.compareTo(b));
+//////////////////////////////////////////////////////
+
+2-  Operaciones en Streams:
+/////////////////////////////////////////////////////
+List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+// Antes de Java 8
+int sumaAntes = 0;
+for (int num : numeros) {
+    sumaAntes += num;
+}
+
+// Con expresión lambda y streams (desde Java 8)
+int sumaDespues = numeros.stream().reduce(0, (a, b) -> a + b);
+//////////////////////////////////////////////////////
+
+3- Hilos (threads)
+//////////////////////////////////////////////////////
+// Antes de Java 8
+Runnable runnableAntes = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("Hola desde el hilo!");
+    }
+};
+new Thread(runnableAntes).start();
+
+// Con expresión lambda (desde Java 8)
+Runnable runnableDespues = () -> System.out.println("Hola desde el hilo!");
+new Thread(runnableDespues).start();
+///////////////////////////////////////////////////////
+
+==========================================================================
+
+
+CUANDO USAR EXPRECIONES LAMBDA Y CUANDO NO.
+
+
+Es MUY importante entender cuándo es apropiado usar expresiones lambda y cuándo puede ser preferible utilizar otras opciones. 
+
+A) Ventajas de usar expresiones lambda:
+
+- Concisión del código: 
+Las expresiones lambda pueden hacer que el código sea más conciso y legible, especialmente para operaciones simples como mapeo, filtrado y reducción en colecciones.
+
+- Facilidad de uso en operaciones con colecciones: 
+Para operaciones comunes en colecciones, como iterar, filtrar o mapear elementos, las expresiones lambda pueden hacer el código más expresivo y fácil de entender.
+
+- Facilidad de manejo de hilos: 
+En el contexto de hilos y tareas asíncronas, las expresiones lambda pueden simplificar la creación de hilos y el manejo de tareas concurrentes.
+
+B) Consideraciones al usar expresiones lambda:
+
+- Claridad y legibilidad: 
+A veces, el uso excesivo de expresiones lambda puede hacer que el código sea menos claro, especialmente para personas que no están familiarizadas con esta característica de Java. 
+En estos casos, puede ser preferible utilizar un enfoque más tradicional con métodos convencionales.
+
+- Complejidad de la lógica: 
+Si la lógica que se va a encapsular en la expresión lambda es compleja, puede ser más difícil de entender en comparación con un método convencional con un nombre descriptivo.
+
+- Reutilización del código: 
+Las expresiones lambda son útiles para funciones que se utilizan una vez y no necesitan ser reutilizadas en otras partes del código. 
+Si la lógica que estás encapsulando se reutilizará en varios lugares, puede ser preferible definir un método convencional y reutilizarlo en lugar de una expresión lambda.
+
+C) Buenas prácticas:
+
+- Utiliza expresiones lambda cuando mejoren la legibilidad y claridad del código, especialmente para operaciones simples en colecciones o tareas concurrentes.
+
+- Evita el exceso de uso de expresiones lambda en situaciones donde puedan hacer que el código sea más difícil de entender para otros desarrolladores.
+
+- Considera la complejidad de la lógica que estás encapsulando y si una expresión lambda es la mejor opción para esa situación específica.
