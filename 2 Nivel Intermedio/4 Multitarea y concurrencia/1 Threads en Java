@@ -1,1 +1,69 @@
 1 Threads en Java
+
+Sigamos usando de ejemplo los bloques de construcción. 
+Cada bloque representa una tarea que quieres hacer. 
+
+Ahora, tienes un amigo que también quiere construir cosas contigo, así que tienen dos opciones: trabajar juntos en la misma pila de bloques o tener dos pilas separadas y construir cosas diferentes al mismo tiempo.
+
+En Java, los "threads" son como tener esas dos pilas de bloques. Cada "thread" es como una pila de bloques separada que puede hacer su propia tarea mientras otras pilas (o "threads") también están haciendo cosas. Esto es genial porque puedes hacer varias cosas al mismo tiempo en un programa Java. 
+
+Por ejemplo, puedes tener un "thread" para mostrar imágenes en tu primera construcion y otro "thread" para mover personajes.
+
+Pero, al igual que cuando juegas con bloques, es importante que todos los jugadores compartan bien y no traten de construir en el mismo lugar al mismo tiempo. 
+En programación, eso significa que necesitas tener cuidado para que los "threads" no intenten cambiar la misma parte del programa al mismo tiempo, porque podría causar problemas o errores.
+
+Entonces, en resumen, los "threads" en Java son como tener varias pilas de bloques (o tareas) que pueden hacer diferentes cosas al mismo tiempo en un programa. Es una forma de hacer que tus programas sean más rápidos y eficientes.
+
+
+Veamos un ejemplo
+
+////////////////////////////////////////////////////////////////////////////////////////
+// Importamos la clase Thread de Java
+import java.lang.Thread;
+
+// Creamos una clase que represente una persona que escribe una página
+class Escritor extends Thread {
+    private String nombre;
+
+    // Constructor
+    public Escritor(String nombre) {
+        this.nombre = nombre;
+    }
+
+    // Método que simula escribir una página
+    public void escribirPagina(int numeroPagina) {
+        System.out.println(nombre + " está escribiendo la página " + numeroPagina);
+    }
+
+    // Método run, que se ejecutará cuando iniciemos el thread
+    public void run() {
+        for (int i = 1; i <= 5; i++) { // Escribimos 5 páginas
+            escribirPagina(i);
+            try {
+                Thread.sleep(1000); // Simulamos el tiempo que tarda en escribir una página
+            } catch (InterruptedException e) {
+                System.out.println("¡Algo interrumpió a " + nombre + " mientras escribía!");
+            }
+        }
+    }
+}
+
+// Clase principal que ejecutará el programa
+public class Main {
+    public static void main(String[] args) {
+        // Creamos dos objetos Escritor
+        Escritor escritor1 = new Escritor("Juan");
+        Escritor escritor2 = new Escritor("María");
+
+        // Iniciamos los threads para que ambos comiencen a escribir
+        escritor1.start();
+        escritor2.start();
+    }
+}
+////////////////////////////////////////////////////////////////////
+
+En este ejemplo, creamos la clase Escritor, que extiende de Thread, para representar a una persona que escribe una página. Dentro de esta clase, definimos un método escribirPagina que simula escribir una página y un método run, que es donde especificamos qué hace el escritor cuando empieza a escribir.
+
+En la clase Main, creamos dos objetos Escritor (representando a dos personas) y los iniciamos como threads llamando al método start(). Esto hace que ambos escritores comiencen a escribir sus páginas simultáneamente.
+
+Al ejecutar este programa, verás que ambos "escritores" (threads) escriben sus páginas al mismo tiempo, lo que ilustra el concepto de concurrencia utilizando threads en Java.s

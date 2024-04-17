@@ -1,1 +1,94 @@
 2 Sincronización de threads
+
+En Java, un "thread" es básicamente un flujo de ejecución dentro de un programa. 
+La sincronización de threads es importante cuando múltiples threads intentan acceder y modificar los mismos recursos compartidos, como variables o archivos, al mismo tiempo. 
+Sin la sincronización adecuada, pueden ocurrir problemas como condiciones de carrera, inconsistencias en los datos o bloqueos.
+
+La sincronización se logra principalmente mediante el uso de la palabra clave synchronized y los bloques sincronizados en Java. Aquí te explico cómo funciona:
+
+1- Métodos Sincronizados: 
+Puedes marcar un método como synchronized, lo que significa que solo un thread puede ejecutar ese método a la vez. 
+
+Esto evita que otros threads accedan a él simultáneamente y causen problemas de concurrencia
+
+/////////////////////////////////////////////////////
+public synchronized void metodoSincronizado() {
+    // Código sincronizado aquí
+}
+///////////////////////////////////////////////////////
+
+Nota: Recuerda que la concurrencia es la capacidad de las distintas partes de un programa de ejecutarse en desroden, al mismo tiempo o en orden parcia.
+
+
+2- Bloques Sincronizados: 
+Puedes usar bloques synchronized para limitar el acceso a partes específicas del código. Esto es útil cuando no quieres sincronizar todo el método, sino solo una parte crítica del mismo.
+
+//////////////////////////////////////
+synchronized(objeto) {
+    // Código sincronizado aquí
+}
+//////////////////////////////////////
+
+3- Objetos Lock: 
+También puedes usar objetos de tipo Lock del paquete java.util.concurrent.locks para lograr una sincronización más flexible y avanzada.
+
+Vamos a Practicar un poco:
+
+* Supongamos que tienes una clase CuentaBancaria que tiene un saldo y métodos para depositar y retirar dinero.
+* Quieres asegurarte de que solo un thread pueda modificar el saldo de la cuenta bancaria a la vez para evitar problemas de concurrencia. 
+* Puedes lograr esto utilizando un objeto ReentrantLock, que es una implementación de la interfaz Lock.
+///////////////////////////////
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class CuentaBancaria {
+    private double saldo;
+    private Lock lock;
+
+    public CuentaBancaria() {
+        this.saldo = 0.0;
+        this.lock = new ReentrantLock();
+    }
+
+    public void depositar(double cantidad) {
+        lock.lock(); // Adquirir el bloqueo
+        try {
+            saldo += cantidad;
+            System.out.println("Se depositaron $" + cantidad + ". Saldo actual: $" + saldo);
+        } finally {
+            lock.unlock(); // Liberar el bloqueo en caso de excepción
+        }
+    }
+
+    public void retirar(double cantidad) {
+        lock.lock(); // Adquirir el bloqueo
+        try {
+            if (saldo >= cantidad) {
+                saldo -= cantidad;
+                System.out.println("Se retiraron $" + cantidad + ". Saldo actual: $" + saldo);
+            } else {
+                System.out.println("Saldo insuficiente para retirar $" + cantidad);
+            }
+        } finally {
+            lock.unlock(); // Liberar el bloqueo en caso de excepción
+        }
+    }
+}
+////////////////////////////////////////
+
+En este ejemplo:
+
+* Creamos un objeto ReentrantLock llamado lock.
+* En los métodos depositar y retirar, adquirimos el bloqueo usando lock.lock().
+* Dentro de un bloque try-finally, realizamos las operaciones necesarias en la cuenta bancaria.
+* Finalmente, liberamos el bloqueo usando lock.unlock() dentro del bloque finally.
+
+Este enfoque asegura que solo un thread pueda ejecutar los métodos depositar y retirar a la vez, evitando así problemas de concurrencia.
+
+Es importante entender en este codigo que estamos asegurando con lock que soloamente este hilo se ejecute dentro de la edicion del campo de saldo. Usando unlock liberamos el campo para poder ser ocupado por otros elementos funciones o procesos. 
+
+
+
+- La sincronización asegura que solo un thread pueda acceder a ciertos recursos compartidos a la vez, evitando problemas como condiciones de carrera donde múltiples threads intentan modificar los mismos datos al mismo tiempo.
+
+Recuerda que la sincronización no es gratuita en términos de rendimiento, así que es importante usarla solo cuando sea necesario y evitar bloquear el código durante períodos prolongados. 

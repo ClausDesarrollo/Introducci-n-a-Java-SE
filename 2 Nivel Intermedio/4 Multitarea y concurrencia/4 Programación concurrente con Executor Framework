@@ -1,1 +1,62 @@
 4 Programación concurrente con Executor Framework
+
+como emos visto, la programación concurrente es una técnica en la que múltiples tareas se ejecutan simultáneamente dentro de un programa.
+
+Con "Executor Framework" en lugar de manejar manualmente la creación y gestión de hilos (threads) en Java, el Executor Framework permite delegar esas tareas al propio framework. 
+
+Esto simplifica el código, mejora la legibilidad y reduce la posibilidad de errores relacionados con la concurrencia.
+
+Cuando interactúas con el Executor Framework en un programa Java, normalmente sigues estos pasos:
+
+1- Crear un ExecutorService: Puedes crear un ExecutorService utilizando métodos estáticos de la clase Executors, que proporciona fábricas para varios tipos de ExecutorService, como newFixedThreadPool, newCachedThreadPool, newSingleThreadExecutor, etc.
+
+2- Enviar tareas al ExecutorService: Utilizas los métodos submit() o execute() del ExecutorService para enviar tareas al Executor para su ejecución. Estas tareas pueden ser objetos Runnable o Callable.
+
+3- Trabajar con objetos Future: Si necesitas obtener el resultado de una tarea asíncrona, puedes guardar el objeto Future devuelto por el método submit(). Luego, puedes utilizar métodos como get() para obtener el resultado cuando esté disponible, o isDone() para verificar si la tarea ha sido completada.
+
+4- Apagar el ExecutorService: Una vez que hayas enviado todas las tareas que necesitas ejecutar y ya no necesites el ExecutorService, debes apagarlo llamando al método shutdown(). Esto asegura que los hilos del pool se cierren adecuadamente cuando todas las tareas hayan finalizado.
+
+ Esto se logra a través de tres componentes principales:
+
+1- Interfaz Executor: Esta interfaz define un único método execute(Runnable task) que toma una tarea (Runnable) y la ejecuta de manera asíncrona en algún hilo administrado por el Executor. La tarea puede ser cualquier objeto que implemente la interfaz Runnable, lo que significa que puede ser una instancia de una clase que ha implementado el método run(), o puede ser una expresión lambda.
+
+2- Clase ThreadPoolExecutor: Esta es una implementación concreta de la interfaz Executor que administra un grupo de hilos (thread pool) para ejecutar tareas. Cuando se crea una instancia de ThreadPoolExecutor, se especifican varios parámetros como el número mínimo y máximo de hilos en el pool, la duración máxima de vida de un hilo inactivo, etc. Esta clase también maneja la asignación de tareas a los hilos disponibles en el pool.
+
+3- Interfaz ExecutorService: Esta interfaz extiende Executor y proporciona métodos adicionales para administrar tareas asíncronas y obtener resultados de las mismas. Algunos de los métodos más útiles incluyen submit(Runnable task) y submit(Callable task), que permiten enviar una tarea al Executor para su ejecución y devolver un objeto Future que representa el resultado futuro de la tarea.
+
+////////////////////////////////////////
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ConcurrentExample {
+    public static void main(String[] args) {
+        // Creamos un ExecutorService con un pool de 3 hilos
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        // Enviamos algunas tareas al ExecutorService
+        for (int i = 1; i <= 5; i++) {
+            Runnable task = new SimpleTask(i);
+            executor.submit(task);
+        }
+
+        // Apagamos el ExecutorService una vez que hayamos terminado de enviar tareas
+        executor.shutdown();
+    }
+}
+
+// Clase que representa una tarea simple que imprime un mensaje
+class SimpleTask implements Runnable {
+    private final int taskId;
+
+    public SimpleTask(int taskId) {
+        this.taskId = taskId;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Tarea " + taskId + " ejecutada en el hilo: " + Thread.currentThread().getName());
+    }
+}
+////////////////////////////////////
+
+En este ejemplo, creamos un ExecutorService utilizando Executors.newFixedThreadPool(3), lo que crea un pool de 3 hilos. Luego, enviamos 5 tareas simples (SimpleTask) al ExecutorService utilizando el método submit(). Cada tarea simplemente imprime un mensaje que incluye su ID y el nombre del hilo en el que se ejecuta. Una vez que hayamos enviado todas las tareas, apagamos el ExecutorService llamando al método shutdown().

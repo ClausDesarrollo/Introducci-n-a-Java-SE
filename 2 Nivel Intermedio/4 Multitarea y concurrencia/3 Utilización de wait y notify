@@ -1,3 +1,125 @@
 3 Utilización de wait y notify
 
-Utilización de wait() y notify()
+En Java, wait() y notify() son métodos que se utilizan para la sincronización de hilos (threads).
+
+Permiten a los hilos comunicarse entre sí de manera segura y coordinada. 
+
+1- Método wait():
+
+Se utiliza para que un hilo espere hasta que otro hilo lo despierte. 
+
+Cuando un hilo llama a wait(), se suspende su ejecución y libera el bloqueo del objeto en el que se llama. Esto significa que el hilo deja de ejecutarse hasta que otro hilo llame a notify() o notifyAll() en el mismo objeto.
+//////////////////////////////////////////////////////////////
+public class EjemploWaitNotify {
+    public static void main(String[] args) {
+        final Object lock = new Object(); // Creamos un objeto de bloqueo compartido
+        
+        Thread hilo1 = new Thread(() -> {
+            synchronized (lock) {
+                System.out.println("Hilo 1: Estoy haciendo algo importante.");
+                try {
+                    lock.wait(); // El hilo espera aquí hasta que sea notificado
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Hilo 1: He sido despertado.");
+            }
+        });
+        
+        Thread hilo2 = new Thread(() -> {
+            synchronized (lock) {
+                System.out.println("Hilo 2: Estoy haciendo algo importante y voy a despertar al otro hilo.");
+                lock.notify(); // Notificamos al otro hilo que puede continuar
+            }
+        });
+        
+        hilo1.start();
+        hilo2.start();
+    }
+}
+////////////////////////////////////////////////////////////
+
+2- Método notify():
+
+Se utiliza para notificar a un hilo que está en espera (llamando a wait()) en el mismo objeto. Cuando se llama a notify(), uno de los hilos en espera se despierta y vuelve a la ejecución.
+
+public class EjemploWaitNotify {
+    public static void main(String[] args) {
+        final Object lock = new Object(); // Creamos un objeto de bloqueo compartido
+        
+        Thread hilo1 = new Thread(() -> {
+            synchronized (lock) {
+                System.out.println("Hilo 1: Estoy haciendo algo importante.");
+                try {
+                    lock.wait(); // El hilo espera aquí hasta que sea notificado
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Hilo 1: He sido despertado.");
+            }
+        });
+        
+        Thread hilo2 = new Thread(() -> {
+            synchronized (lock) {
+                System.out.println("Hilo 2: Estoy haciendo algo importante y voy a despertar al otro hilo.");
+                lock.notify(); // Notificamos al otro hilo que puede continuar
+            }
+        });
+        
+        hilo1.start();
+        hilo2.start();
+    }
+}
+////////////////////////////////////////////////
+
+En este ejemplo, el hilo 1 espera hasta que el hilo 2 lo despierte llamando a notify().
+
+3- Metodo notifyAll() :
+
+Es similar a notify(), pero en lugar de despertar solo a un hilo en espera, despierta a todos los hilos que están esperando en el mismo objeto.
+
+Esto es útil cuando varios hilos están esperando en un objeto y queremos notificar a todos ellos para que continúen su ejecución.
+
+Miera este ejemplo:
+
+///////////////////////////////public class EjemploNotifyAll {
+    public static void main(String[] args) {
+        final Object lock = new Object(); // Creamos un objeto de bloqueo compartido
+        
+        Runnable tarea = () -> {
+            synchronized (lock) {
+                System.out.println(Thread.currentThread().getName() + " está esperando.");
+                try {
+                    lock.wait(); // El hilo espera aquí hasta que sea notificado
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + " ha sido despertado.");
+            }
+        };
+        
+        Thread hilo1 = new Thread(tarea, "Hilo 1");
+        Thread hilo2 = new Thread(tarea, "Hilo 2");
+        Thread hilo3 = new Thread(tarea, "Hilo 3");
+        
+        hilo1.start();
+        hilo2.start();
+        hilo3.start();
+        
+        try {
+            Thread.sleep(2000); // Esperamos un poco para asegurarnos de que todos los hilos estén esperando
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        synchronized (lock) {
+            System.out.println("Despertando todos los hilos...");
+            lock.notifyAll(); // Notificamos a todos los hilos que pueden continuar
+        }
+    }
+}
+/////////////////////////////////
+
+En este ejemplo, creamos tres hilos (Hilo 1, Hilo 2 y Hilo 3) que están esperando en el mismo objeto de bloqueo (lock). Luego, después de esperar un tiempo, llamamos a notifyAll() en el objeto lock, lo que hace que todos los hilos en espera sean despertados y continúen su ejecución.
+
+Este mecanismo es útil en situaciones donde múltiples hilos están esperando por un recurso compartido y queremos notificarles a todos que el recurso está disponible para su uso.	

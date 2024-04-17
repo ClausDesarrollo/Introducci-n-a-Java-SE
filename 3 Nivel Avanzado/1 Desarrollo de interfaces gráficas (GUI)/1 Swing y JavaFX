@@ -1,0 +1,10 @@
+1 Swing y JavaFX
+
+Swing y JavaFX son dos tecnologías de "INTERFAZ GRAFICA de USUARIO" (GUI) utilizadas en el desarrollo de aplicaciones de escritorio en Java.
+
+Swing: Es una biblioteca GUI incluida en el conjunto de herramientas de desarrollo de Java. 
+Swing proporciona un conjunto de componentes de interfaz de usuario que permiten a los desarrolladores crear interfaces gráficas de usuario sofisticadas y personalizadas para aplicaciones Java. 
+Estos componentes incluyen botones, cuadros de texto, menús desplegables, paneles, ventanas, etc. Swing es conocido por su flexibilidad y facilidad de uso, permitiendo a los desarrolladores crear interfaces de usuario altamente interactivas y visualmente atractivas.
+
+JavaFX: Es un conjunto de bibliotecas y herramientas para la creación de aplicaciones de escritorio y aplicaciones web ricas en contenido multimedia en Java. JavaFX proporciona una API más moderna y rica en características en comparación con Swing. Permite la creación de interfaces de usuario con gráficos 2D y 3D, animaciones, efectos visuales, contenido multimedia integrado y una arquitectura de estilo de hoja de estilo (CSS) para el diseño visual. JavaFX se introdujo inicialmente como un reemplazo potencial para Swing, ya que ofrece capacidades más avanzadas y una mejor integración con tecnologías web.
+ 
