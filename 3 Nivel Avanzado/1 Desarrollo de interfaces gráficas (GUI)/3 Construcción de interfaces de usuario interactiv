@@ -1,1 +1,54 @@
 3 Construcción de interfaces de usuario interactivas
+
+La construcción de interfaces de usuario interactivas en Java generalmente se realiza utilizando bibliotecas específicas como Swing o JavaFX. 
+
+Ambas bibliotecas permiten crear aplicaciones gráficas con elementos de interfaz de usuario (UI) como botones, campos de texto, menús, y más.
+
+Vamos a centrarnos en Swing, que es una de las bibliotecas más comunes y ampliamente utilizadas en Java para la construcción de interfaces de usuario interactivas.
+
+Veamos un ejemplo que muestra cómo construir una interfaz de usuario interactiva utilizando Swing:
+////////////////////////////////////////////////
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class EjemploSwing extends JFrame {
+    private JButton boton;
+    private JTextField campoTexto;
+
+    public EjemploSwing() {
+        // Configurar el marco
+        setTitle("Ejemplo de Swing");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Configurar el gestor de diseño
+        setLayout(new FlowLayout());
+
+        // Crear y agregar un botón
+        boton = new JButton("Haz clic aquí");
+        add(boton);
+        
+        // Crear y agregar un campo de texto
+        campoTexto = new JTextField(15);
+        add(campoTexto);
+        
+        // Registrar un ActionListener para manejar eventos de clic
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Mostrar el texto del campo de texto en la consola
+                System.out.println("Texto del campo: " + campoTexto.getText());
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        EjemploSwing ejemplo = new EjemploSwing();
+        ejemplo.setVisible(true);
+    }
+}
+///////////////////////////////////////////
+
+En este ejemplo, se crea una interfaz de usuario simple con un botón y un campo de texto. 
+Cuando se hace clic en el botón, el escuchador de eventos imprime el contenido del campo de texto en la consola.

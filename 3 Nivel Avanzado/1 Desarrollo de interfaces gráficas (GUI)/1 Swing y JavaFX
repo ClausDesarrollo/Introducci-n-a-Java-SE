@@ -65,8 +65,62 @@ Se diseñó como una alternativa más actual y avanzada a Swing, con el objetivo
 Veamos un ejemplo de código en Java que utiliza JavaFX para crear una ventana con un botón y un cuadro de texto. 
 El programa muestra cómo se puede crear una interfaz gráfica simple utilizando JavaFX.
 
+////////////////////////////////////////////////////////////
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+public class EjemploJavaFX extends Application {
 
+    @Override
+    public void start(Stage escenario) {
+        // Crear un cuadro de texto (TextField)
+        TextField texto = new TextField();
+        
+        // Crear un botón (Button)
+        Button boton = new Button("Presionar");
+        
+        // Configurar una acción para el botón
+        boton.setOnAction(event -> {
+            // Acción que se ejecuta cuando se presiona el botón
+            texto.setText("¡Botón presionado!");
+        });
+        
+        // Crear un diseño vertical (VBox) y agregar los componentes
+        VBox layout = new VBox(10); // El número 10 es el espacio entre los componentes
+        layout.getChildren().addAll(texto, boton);
+        
+        // Crear una escena con el diseño
+        Scene escena = new Scene(layout, 300, 200);
+        
+        // Configurar el escenario (ventana)
+        escenario.setTitle("Ejemplo de JavaFX");
+        escenario.setScene(escena);
+        
+        // Mostrar la ventana
+        escenario.show();
+    }
+
+    public static void main(String[] args) {
+        // Iniciar la aplicación JavaFX
+        launch(args);
+    }
+}
+
+////////////////////////////////////////////////////
+
+Explicación del código:
+* El programa define una clase EjemploJavaFX que extiende Application, lo que es necesario para crear una aplicación JavaFX.
+* En el método start, se configura el escenario (ventana) y los componentes de la interfaz de usuario:
+* Se crea un cuadro de texto (TextField) y un botón (Button).
+* El botón tiene una acción configurada con setOnAction, que establece una función lambda para cambiar el texto del cuadro de texto cuando se presiona el botón.
+* Los componentes se organizan en un diseño vertical (VBox) con un espacio de 10 píxeles entre cada componente.
+* Luego, se crea una escena (Scene) con el diseño y se establece en el escenario (ventana).
+* Finalmente, se muestra el escenario (ventana) con show().
+* El método main llama a launch(args), que inicia la aplicación JavaFX.
 
 
 3 - Meaven

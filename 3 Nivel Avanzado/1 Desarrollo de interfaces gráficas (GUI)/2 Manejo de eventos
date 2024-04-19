@@ -1,1 +1,61 @@
 2 Manejo de eventos
+
+En Java, el manejo de eventos (event handling) es un mecanismo que permite que un programa responda a eventos externos, como el clic de un botón, el movimiento del ratón, o la entrada de datos en un campo de texto.
+
+Este concepto es muy importante en aplicaciones gráficas y en aplicaciones que interactúan con el usuario.
+
+Fuentes de eventos (Event Sources): 
+Las fuentes de eventos son objetos que generan eventos. Por ejemplo, un botón en una interfaz gráfica puede ser una fuente de eventos porque genera un evento cada vez que se hace clic en él.
+
+Tipos de eventos: 
+Hay varios tipos de eventos, como eventos de acción (cuando se hace clic en un botón), eventos de ventana (cuando se abre o cierra una ventana), eventos de teclado (cuando se presiona una tecla), eventos de ratón (cuando se mueve o hace clic con el ratón), etc.
+
+Escuchadores de eventos (Event Listeners): 
+Los escuchadores de eventos son interfaces que se implementan para manejar eventos específicos. Por ejemplo, ActionListener es una interfaz que se utiliza para manejar eventos de acción. 
+Los escuchadores definen un método que se ejecuta cuando ocurre un evento.
+
+Registro de escuchadores: 
+Para que un objeto (como un botón) responda a eventos, es necesario registrar un escuchador de eventos. 
+Esto se hace llamando a un método, como addActionListener(), y pasando una instancia de una clase que implemente la interfaz de escuchador correspondiente.
+
+Manejo de eventos: 
+Cuando se produce un evento, el objeto fuente llama al método correspondiente del escuchador registrado, pasando un objeto de evento que contiene información sobre el evento.
+
+Aquí tienes un ejemplo simple que muestra cómo manejar un evento de acción (clic de botón) en una interfaz gráfica:
+
+//////////////////////////////////////
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class EjemploEventHandling extends JFrame {
+    private JButton boton;
+
+    public EjemploEventHandling() {
+        boton = new JButton("Haz clic aquí");
+
+        // Registramos un ActionListener para manejar eventos de clic
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Botón ha sido clicado!");
+            }
+        });
+
+        // Configurar la ventana
+        setLayout(new FlowLayout());
+        add(boton);
+        setTitle("Ejemplo de Manejo de Eventos");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        EjemploEventHandling ejemplo = new EjemploEventHandling();
+        ejemplo.setVisible(true);
+    }
+}
+/////////////////////////////
+
+
+En este ejemplo, se crea una ventana con un botón. Cuando el botón se hace clic, el escuchador ActionListener imprime un mensaje en la consola.
