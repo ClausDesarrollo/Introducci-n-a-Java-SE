@@ -1,10 +1,275 @@
 1 Swing y JavaFX
 
-Swing y JavaFX son dos tecnologías de "INTERFAZ GRAFICA de USUARIO" (GUI) utilizadas en el desarrollo de aplicaciones de escritorio en Java.
-
-Swing: Es una biblioteca GUI incluida en el conjunto de herramientas de desarrollo de Java. 
-Swing proporciona un conjunto de componentes de interfaz de usuario que permiten a los desarrolladores crear interfaces gráficas de usuario sofisticadas y personalizadas para aplicaciones Java. 
-Estos componentes incluyen botones, cuadros de texto, menús desplegables, paneles, ventanas, etc. Swing es conocido por su flexibilidad y facilidad de uso, permitiendo a los desarrolladores crear interfaces de usuario altamente interactivas y visualmente atractivas.
-
-JavaFX: Es un conjunto de bibliotecas y herramientas para la creación de aplicaciones de escritorio y aplicaciones web ricas en contenido multimedia en Java. JavaFX proporciona una API más moderna y rica en características en comparación con Swing. Permite la creación de interfaces de usuario con gráficos 2D y 3D, animaciones, efectos visuales, contenido multimedia integrado y una arquitectura de estilo de hoja de estilo (CSS) para el diseño visual. JavaFX se introdujo inicialmente como un reemplazo potencial para Swing, ya que ofrece capacidades más avanzadas y una mejor integración con tecnologías web.
+1- Java Swing
+Java Swing es un marco de trabajo (framework) para crear "Aplicaciones Gráficas de Usuario (GUI) en Java.
  
+Forma parte del "Java Foundation Classes" (JFC), un conjunto de bibliotecas que permite el desarrollo de interfaces de usuario en aplicaciones de Java.
+
+Java Swing es una biblioteca de Java que facilita la creación de interfaces de usuario gráficas, especialmente para aplicaciones de escritorio. Aunque actualmente existen otras bibliotecas y frameworks más modernos (como JavaFX), Swing sigue siendo una opción válida y ampliamente utilizada para el desarrollo de GUIs en Java.
+
+
+Veamos un ejemplo básico de código en Java que utiliza Swing para crear una ventana con un botón y un cuadro de texto.
+El programa muestra cómo se crea una interfaz gráfica simple usando Swing:
+
+///////////////////////////////////////////////////////
+import javax.swing.*;
+
+public class EjemploSwing {
+
+    public static void main(String[] args) {
+        // Crear una ventana (JFrame)
+        JFrame ventana = new JFrame("Ejemplo de Java Swing");
+
+        // Establecer el tamaño de la ventana (es flexible asta que se le indica lo opuesto)
+        ventana.setSize(400, 300);
+
+        // Cerrar la aplicación al cerrar la ventana
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Crear un panel (JPanel)
+        JPanel panel = new JPanel();
+
+        // Crear un botón (JButton)
+        JButton boton = new JButton("Presionar");
+
+        // Crear un cuadro de texto (JTextField)
+        JTextField texto = new JTextField(20);
+
+        // Agregar el botón y el cuadro de texto al panel
+        panel.add(boton);
+        panel.add(texto);
+
+        // Agregar el panel a la ventana
+        ventana.add(panel);
+
+        // Mostrar la ventana
+        ventana.setVisible(true);
+    }
+}
+///////////////////////////////////////////////////
+
+Explicación del código:
+
+Se importa la biblioteca javax.swing que contiene las clases necesarias para crear la interfaz gráfica.
+Se crea una ventana (JFrame) con el título "Ejemplo de Java Swing" y se establece su tamaño.
+Se configura la operación de cierre de la ventana para que la aplicación se cierre cuando la ventana se cierra.
+Se crea un panel (JPanel) para organizar los componentes dentro de la ventana.
+Se crean un botón (JButton) y un cuadro de texto (JTextField), que se agregan al panel.
+El panel se agrega a la ventana, y luego se hace visible la ventana.
+
+
+2 - JavaFX
+JavaFX es un conjunto de herramientas y bibliotecas que permite a los desarrolladores crear aplicaciones gráficas de usuario (GUI) modernas en Java. 
+Se diseñó como una alternativa más actual y avanzada a Swing, con el objetivo de ofrecer una experiencia de desarrollo de interfaces gráficas más potente y flexible.
+
+Veamos un ejemplo de código en Java que utiliza JavaFX para crear una ventana con un botón y un cuadro de texto. 
+El programa muestra cómo se puede crear una interfaz gráfica simple utilizando JavaFX.
+
+
+
+
+
+3 - Meaven
+
+Qué es Maven? 
+
+Apache Maven es una potente herramienta de gestión de proyectos que se utiliza para gestión de dependencias, como herramienta de compilación e herramienta de documentación. Es de código abierto y gratuita.
+
+frameworks Java como Spring y Spring Boot la utilizan por defecto, por lo que conviene conocerla si trabajas en la plataforma Java y, desde luego, con Spring.
+
+Qué es el archivo pom.xml?
+
+La unidad básica de trabajo en Maven es el llamado Modelo de Objetos de Proyecto conocido simplemente como POM (de sus siglas en inglés: Project Object Model).
+
+Se trata de un archivo XML llamado pom.xml que se encuentra por defecto en la raíz de los proyectos y que contiene toda la información del proyecto: 
+su configuración, sus dependencias, etc...
+
+///////////////// 
+Proyecto >
+    > src
+      > pom.xml
+////////////////
+
+La base de un documento Maven "pom.xml" se ve asi :
+
+////////////////////////////////////////////////////////// EJEMPLO 1
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>InterfaceGraficasMaven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - InterfaceGraficasMaven</name>
+  <url>http://maven.apache.org</url>
+</project>
+///////////////////////////////////////////////////////////
+
+
+veamos otro ejemplo mas completo :
+
+////////////////////////////////////// EJEMPLO 2
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.campusmvp</groupId>d>
+  <artifactId>demo</artifactId>
+  <version>1.0</version>
+  <!-- Dependencias -->
+  <dependencies>
+    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+		<exclusions>
+			<exclusion>
+				<groupId>org.junit.vintage</groupId>
+				<artifactId>junit-vintage-engine</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-jasper</artifactId>
+		<scope>compile</scope>
+	</dependency>
+  </dependencies>
+</project>
+
+/////////////////////////////////////////////
+
+
+vamos a trabajar con el primer ejemplo y vamos a agregar dependencias :
+
+1. Agregar dependencias a un proyecto Maven
+
+* Abre el archivo pom.xml: En IntelliJ IDEA, ve a la pestaña de Project y busca el archivo pom.xml de tu proyecto.
+
+* Agregar las dependencias de JavaFX: Dentro de la sección <dependencies> del archivo pom.xml, agrega las dependencias de JavaFX. Aquí tienes un ejemplo para agregar las dependencias de JavaFX 17:
+
+////////////////////////////////////////////
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-controls</artifactId>
+    <version>17</version>
+</dependency>
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-fxml</artifactId>
+    <version>17</version>
+</dependency>
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-graphics</artifactId>
+    <version>17</version>
+</dependency>
+
+////////////////////////////////////////////
+
+* Guardar el archivo pom.xml: Guarda el archivo pom.xml después de agregar las dependencias.
+
+* Actualizar el proyecto Maven: Haz clic derecho en el archivo pom.xml y selecciona "Reimportar" o "Reload Project" para actualizar el proyecto y descargar las dependencias de JavaFX.
+
+/////////////////////////////////////////// eejmplo 1 paso 1
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>InterfaceGraficasMaven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - InterfaceGraficasMaven</name>
+  <url>http://maven.apache.org</url>
+</project>  
+  ////////////////////////////////////////////
+
+agregamos la etiqueta donde va la dependencia dentro d eproyect
+//////////////////////////////////////////// ejemplo 1 paso 2
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>InterfaceGraficasMaven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - InterfaceGraficasMaven</name>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <!-- Aquí se agregarán las dependencias de JavaFX -->
+  </dependencies>
+</project>
+///////////////////////////////////////////
+
+Colocamos dentro de las etiquetas de dependencias las dependencias correspondientes:
+
+/////////////////////////////////////////// ejemplo 1 paso 3
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>InterfaceGraficasMaven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - InterfaceGraficasMaven</name>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-media</artifactId>
+      <version>17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-web</artifactId>
+      <version>17</version>
+    </dependency>
+  </dependencies>
+</project>
+////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Herencia de POMs
+Dentro de un proyecto pueden existir varios archivos pom.xml en distintas subcarpetas. Cuando una subcarpeta tiene su propio POM, este hereda los valores de las carpetas superiores, sobrescribiéndolos en caso de estar definidos de nuevo dentro de él.
+
+De hecho el archivo pom.xml que tenemos en la raíz está actuando ya de esta manera: hereda todos los valores del Súper POM que son los que tenemos por defecto y, si en nuestro pom.xml propio en el proyecto establecemos otros diferentes, estos prevalecerán sobre los que hay en el Súper POM.
+
+Este tipo de funcionamiento es típico en muchas herramientas de configuración y nos ofrece una manera muy potente de definir valores particulares para casos concretos teniendo una configuración global por defecto.
